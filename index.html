@@ -1,346 +1,556 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BikeDoc – Pyöräilyn tietopankki</title>
-  <meta name="description" content="BikeDoc on kattava pyöräilyn opas, jossa löydät huolto-ohjeet, reittivinkit ja varustesuositukset." />
+  <title>BikeDoc – Pyöräilyn asiantuntija</title>
+  <meta name="description" content="BikeDoc tarjoaa pyöräilypalvelut, huolto-oppaat, reittineuvonnan ja varustearviot." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVIGAATIO
-       ============================================================ -->
-  <nav class="navbar" role="navigation" aria-label="Päänavigaatio">
-    <div class="container">
+  <!-- ======================================================
+       1. HEADER – logo | nav (6 kpl) | puhelin | sticky
+       ====================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container hdr-inner">
 
       <!-- Logo -->
-      <a href="index.html" class="navbar-logo">
-        <!-- Polkupyörä-ikoni (SVG) -->
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M5 16.5A3.5 3.5 0 1 0 5 23.5 3.5 3.5 0 0 0 5 16.5zm14 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 3l-1.5 5H7l3 4H6.5L5 16h3.18a4.5 4.5 0 0 1 8.64 0H19l-1.5-4H14l-3-4h2.5L12 3z"/>
+      <a href="index.html" class="logo" aria-label="BikeDoc etusivu">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="5.5" cy="17.5" r="3.5"/>
+          <circle cx="18.5" cy="17.5" r="3.5"/>
+          <path d="M15 6h-4l-2 5.5-3-3.5H3"/>
+          <path d="M15 6l2.5 5.5"/>
         </svg>
         Bike<span>Doc</span>
       </a>
 
-      <!-- Hamburger-nappi (mobiili) -->
-      <button class="hamburger" id="hamburger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navbar-links">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Hamburger (mobiili) -->
+      <button class="hamburger" id="hamburger"
+              aria-label="Avaa valikko" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
       </button>
 
-      <!-- Navigaatiolinkit -->
-      <ul class="navbar-links" id="navbar-links" role="list">
-        <li><a href="index.html" class="active" aria-current="page">Etusivu</a></li>
-        <li><a href="guides.html">Oppaat</a></li>
-        <li><a href="routes.html">Reitit</a></li>
-        <li><a href="about.html">Tietoa</a></li>
-        <li><a href="contact.html" class="btn-nav">Ota yhteyttä</a></li>
-      </ul>
+      <!-- Navigaatio – keskellä -->
+      <nav class="main-nav" id="main-nav" role="navigation" aria-label="Päänavigaatio">
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="routes.html">Reitit</a></li>
+          <li><a href="guides.html">Oppaat</a></li>
+          <li><a href="about.html">Tietoa</a></li>
+          <li><a href="contact.html">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+
+      <!-- Puhelinnumero oikealla -->
+      <a href="tel:+358401234567" class="hdr-phone" aria-label="Soita meille">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
+                   A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67
+                   A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72
+                   c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9
+                   a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
+                   c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +358 40 123 4567
+      </a>
 
     </div>
-  </nav><!-- /navbar -->
+  </header><!-- /header -->
 
 
-  <!-- ============================================================
-       HERO-OSIO
-       ============================================================ -->
-  <header class="hero" role="banner">
+  <!-- ======================================================
+       2. HERO – taustakuva | vasen sisältö | oikea visuaali
+       ====================================================== -->
+  <section class="hero" aria-labelledby="hero-heading">
 
-    <!-- Taustakuva – korvaa src omalla kuvallasi -->
-    <div class="hero-bg" style="background-image: url('images/hero-bg.jpg');" role="img" aria-label="Pyöräilijä vuoristomaisemassa"></div>
-
-    <!-- Tumma liukuväri, jotta teksti erottuu -->
+    <!-- Taustakuva: korvaa url omalla kuvallasi -->
+    <div class="hero-bg" style="background-image:url('images/hero-bg.jpg');"
+         role="img" aria-label="Pyöräilijä vuoristomaisemassa"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div class="container">
+    <div class="container hero-inner">
+
+      <!-- Vasen: pääsisältö -->
       <div class="hero-content">
-        <span class="hero-tag">🚲 Pyöräilyn tietopankki</span>
-        <h1>Kaikki mitä tarvitset<br><em>parempaan pyöräilyyn</em></h1>
-        <p>Kattavat huolto-ohjeet, inspiroivat reittivinkit ja asiantuntevat varustearviot – yhdessä paikassa.</p>
+        <span class="hero-eyebrow">Suomen johtava pyöräilypalvelu</span>
+        <h1 id="hero-heading">Löydä intohimosi<br><em>pyörän selässä</em></h1>
+        <p>Kattavat huolto-ohjeet, inspiroivat reittivinkit ja asiantuntevat
+           varustearviot – kaikki samassa paikassa.</p>
+
+        <!-- CTA-napit -->
         <div class="hero-buttons">
           <a href="guides.html" class="btn btn-primary">Selaa oppaita</a>
-          <a href="routes.html" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.6);">Katso reitit</a>
-        </div>
-      </div>
-    </div>
-
-  </header><!-- /hero -->
-
-
-  <!-- ============================================================
-       TILASTOPALKKI
-       ============================================================ -->
-  <div class="stats-bar" aria-label="Tilastot">
-    <div class="container">
-      <div class="stat-item">
-        <strong>120+</strong>
-        <span>Huolto-opasta</span>
-      </div>
-      <div class="stat-item">
-        <strong>85</strong>
-        <span>Pyöräilyreittiä</span>
-      </div>
-      <div class="stat-item">
-        <strong>200+</strong>
-        <span>Varustearvostelu</span>
-      </div>
-      <div class="stat-item">
-        <strong>12 000</strong>
-        <span>Kuukausikävijää</span>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-       OMINAISUUDET
-       ============================================================ -->
-  <main id="main-content">
-
-    <section class="section" aria-labelledby="features-heading">
-      <div class="container">
-
-        <div class="section-header centered">
-          <h2 class="section-title" id="features-heading">Mitä BikeDoc tarjoaa?</h2>
-          <p class="section-subtitle">Kaikki pyöräilijän tarvitsemat tiedot selkeästi järjestettynä</p>
+          <a href="contact.html" class="btn btn-ghost">Ota yhteyttä</a>
         </div>
 
-        <div class="features-grid">
-
-          <div class="feature-item">
-            <div class="feature-icon" aria-hidden="true">🔧</div>
-            <h3>Huolto-ohjeet</h3>
-            <p>Askel askeleelta -ohjeet kaikkiin pyörän huoltotöihin – aloittelijasta kokeneen mekaanikon tasolle.</p>
+        <!-- 3 feature-ikonielementtiä -->
+        <div class="hero-features">
+          <div class="hero-feat">
+            <span class="hf-icon" aria-hidden="true">🔧</span>
+            <div>
+              <strong>120+ opasta</strong>
+              <span>Huolto &amp; vinkit</span>
+            </div>
           </div>
+          <div class="hero-feat">
+            <span class="hf-icon" aria-hidden="true">🗺️</span>
+            <div>
+              <strong>85 reittiä</strong>
+              <span>Kaikille tasoille</span>
+            </div>
+          </div>
+          <div class="hero-feat">
+            <span class="hf-icon" aria-hidden="true">⭐</span>
+            <div>
+              <strong>4.9 / 5</strong>
+              <span>Lukija-arvio</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <div class="feature-item">
-            <div class="feature-icon" aria-hidden="true">🗺️</div>
+      <!-- Oikea: dekoratiivinen elementti (korvaa kuvalla halutessasi) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card">
+          <span class="hc-icon">🚲</span>
+          <p>Yli <strong>12 000</strong> kuukausikävijää</p>
+        </div>
+        <div class="hero-badge">⭐ 4.9 / 5 · 380+ arvostelua</div>
+      </div>
+
+    </div>
+  </section><!-- /hero -->
+
+
+  <!-- ======================================================
+       3. PALVELUT – otsikko + 4 korttia
+       ====================================================== -->
+  <section class="section services-section" aria-labelledby="services-heading">
+    <div class="container">
+
+      <div class="section-head center">
+        <h2 id="services-heading">Palvelumme</h2>
+        <p>Kaikki pyöräilijän tarpeet yhdessä paikassa</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="srv-card">
+          <!-- Korvaa: <img src="images/srv-1.jpg" alt="Pyörän huolto" class="srv-img-real"> -->
+          <div class="srv-img" style="background:linear-gradient(135deg,#1c2841,#0f3460)"
+               aria-hidden="true">🔧</div>
+          <div class="srv-body">
+            <h3>Pyörän huolto</h3>
+            <p>Ammattimainen huolto kaikille pyörätyypeille. Vaihteisto, jarrut, renkaat ja koko pyörä kuntoon.</p>
+            <a href="palvelut.html" class="srv-link">Lue lisää →</a>
+          </div>
+        </article>
+
+        <article class="srv-card">
+          <div class="srv-img" style="background:linear-gradient(135deg,#16213e,#533483)"
+               aria-hidden="true">🗺️</div>
+          <div class="srv-body">
             <h3>Reittiopas</h3>
-            <p>Parhaat pyöräilyreitit eri vaikeustasoille. Kartat, korkeuserot ja vinkit suoraan käyttäjiltä.</p>
+            <p>Parhaat pyöräilyreitit GPX-tiedostoineen. Maasto, maantie ja gravel kaikille tasoille.</p>
+            <a href="routes.html" class="srv-link">Lue lisää →</a>
           </div>
+        </article>
 
-          <div class="feature-item">
-            <div class="feature-icon" aria-hidden="true">⭐</div>
+        <article class="srv-card">
+          <div class="srv-img" style="background:linear-gradient(135deg,#11998e,#38ef7d)"
+               aria-hidden="true">⭐</div>
+          <div class="srv-body">
             <h3>Varustearviot</h3>
-            <p>Puolueettomat arviot kypäristä, varusteista, pyöristä ja lisävarusteista ennen ostopäätöstä.</p>
+            <p>Puolueettomat testit – kypärät, vaatteet, pyörät ja lisävarusteet selkeästi vertailtu.</p>
+            <a href="guides.html" class="srv-link">Lue lisää →</a>
           </div>
+        </article>
 
-          <div class="feature-item">
-            <div class="feature-icon" aria-hidden="true">💬</div>
-            <h3>Yhteisö</h3>
-            <p>Jaa kokemuksiasi, kysy neuvoa ja löydä pyöräilykavereita aktiivisesta yhteisöstämme.</p>
+        <article class="srv-card">
+          <div class="srv-img" style="background:linear-gradient(135deg,#e85d04,#c44b00)"
+               aria-hidden="true">💬</div>
+          <div class="srv-body">
+            <h3>Yhteisö &amp; kurssit</h3>
+            <p>Liity aktiiviseen pyöräilyyhteisöön. Kursseja aloittelijoille ja edistyneille.</p>
+            <a href="about.html" class="srv-link">Lue lisää →</a>
           </div>
+        </article>
 
-        </div><!-- /features-grid -->
-
-      </div>
-    </section><!-- /ominaisuudet -->
-
-
-    <!-- ============================================================
-         UUSIMMAT OPPAAT (korttiruudukko)
-         ============================================================ -->
-    <section class="section bg-light" aria-labelledby="guides-heading">
-      <div class="container">
-
-        <div class="section-header">
-          <h2 class="section-title" id="guides-heading">Uusimmat oppaat</h2>
-          <p class="section-subtitle">Tuoreimmat artikkeli- ja huolto-opastukset</p>
-        </div>
-
-        <div class="cards-grid">
-
-          <!-- Kortti 1 -->
-          <article class="card">
-            <!-- Korvaa img-tagi omalla kuvallasi: <img src="images/guide-1.jpg" alt="Vaihteiston säätö" class="card-image"> -->
-            <div class="card-image-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);" aria-hidden="true">🔩</div>
-            <div class="card-body">
-              <span class="card-tag">Huolto</span>
-              <h3>Vaihteiston täydellinen säätö</h3>
-              <p>Opi säätämään sekä etu- että takasiirtäjä tarkasti. Opas sopii kaikkiin 1x, 2x ja 3x-järjestelmiin.</p>
-              <a href="guides.html" class="card-link">Lue opas</a>
-            </div>
-          </article>
-
-          <!-- Kortti 2 -->
-          <article class="card">
-            <div class="card-image-placeholder" style="background: linear-gradient(135deg, #16213e, #533483);" aria-hidden="true">🏔️</div>
-            <div class="card-body">
-              <span class="card-tag">Reitti</span>
-              <h3>Nuuksion kansallispuisto MTB</h3>
-              <p>38 km tekninen maastopyöräilyreitti Nuuksion upeiden maisemien halki. Sisältää GPX-tiedoston.</p>
-              <a href="routes.html" class="card-link">Katso reitti</a>
-            </div>
-          </article>
-
-          <!-- Kortti 3 -->
-          <article class="card">
-            <div class="card-image-placeholder" style="background: linear-gradient(135deg, #2d1b69, #11998e);" aria-hidden="true">🪖</div>
-            <div class="card-body">
-              <span class="card-tag">Varusteet</span>
-              <h3>Kypärävertailu 2025</h3>
-              <p>Testasimme 12 kypärää eri hintaluokista. Katso kumpi pärjäsi parhaiten turvallisuudessa ja istuvuudessa.</p>
-              <a href="guides.html" class="card-link">Lue vertailu</a>
-            </div>
-          </article>
-
-        </div><!-- /cards-grid -->
-
-        <div style="text-align:center; margin-top:2.5rem;">
-          <a href="guides.html" class="btn btn-outline">Kaikki oppaat</a>
-        </div>
-
-      </div>
-    </section><!-- /uusimmat oppaat -->
+      </div><!-- /services-grid -->
+    </div>
+  </section><!-- /palvelut -->
 
 
-    <!-- ============================================================
-         SPLIT-LAYOUT – Tietoa BikeDocista
-         ============================================================ -->
-    <section class="section" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="split-layout">
-
-          <!-- Kuva vasemmalla -->
-          <div class="split-image">
-            <!-- Korvaa omalla kuvallasi: <img src="images/about.jpg" alt="Pyöräilijä huoltaa pyörää"> -->
-            <div class="img-placeholder" style="background: linear-gradient(135deg, #e85d04, #c44b00);" aria-hidden="true">🚲</div>
-          </div>
-
-          <!-- Teksti oikealla -->
-          <div class="split-text">
-            <h2 class="section-title" id="about-heading">Miksi BikeDoc?</h2>
-            <p>Olemme pyöräilyharrastajien kokoama tiimi, jonka intohimona on jakaa osaamista kaikille pyöräilijöille tasosta riippumatta.</p>
-            <p>Kaikki sisältömme on testattu kentällä ja kirjoitettu selkeäksi, käytännönläheiseksi ohjeeksi.</p>
-            <ul class="check-list">
-              <li>Ilmainen sisältö kaikille</li>
-              <li>Asiantuntijoiden kirjoittamaa</li>
-              <li>Päivitetään säännöllisesti</li>
-              <li>Sopii aloittelijoille ja kokeneille</li>
-            </ul>
-            <a href="about.html" class="btn btn-primary">Lue lisää meistä</a>
-          </div>
-
-        </div>
-      </div>
-    </section><!-- /split-layout -->
-
-
-    <!-- ============================================================
-         CTA-BANNERI
-         ============================================================ -->
-    <section class="cta-section" aria-labelledby="cta-heading">
-      <div class="container">
-        <h2 id="cta-heading">Aloita pyöräilyseikkailusi tänään</h2>
-        <p>Liity tuhansien pyöräilijöiden joukkoon ja löydä inspiraatio seuraavaan ajoon.</p>
-        <a href="contact.html" class="btn btn-primary">Ota yhteyttä</a>
-      </div>
-    </section>
-
-  </main><!-- /main-content -->
-
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer" role="contentinfo">
+  <!-- ======================================================
+       4. MIKSI VALITA – tumma tausta + 4 saraketta
+       ====================================================== -->
+  <section class="why-section" aria-labelledby="why-heading">
     <div class="container">
 
-      <div class="footer-grid">
+      <div class="section-head center light">
+        <h2 id="why-heading">Miksi valita BikeDoc?</h2>
+        <p>Olemme pyöräilijöiden luottama kumppani jo vuodesta 2020</p>
+      </div>
 
-        <!-- Brändi -->
-        <div class="footer-brand">
-          <a href="index.html" class="navbar-logo" style="margin-bottom:0.5rem; display:inline-flex;">
-            Bike<span>Doc</span>
-          </a>
-          <p>Kattava pyöräilyn tietopankki – huolto-oppaat, reittivinkit ja varustearviot yhdessä paikassa.</p>
-          <div class="social-links" aria-label="Sosiaalinen media">
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="YouTube">▶️</a>
-            <a href="#" aria-label="Strava">🏅</a>
-          </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">🏆</div>
+          <h3>Asiantuntemus</h3>
+          <p>Tiimimme koostuu sertifioiduista pyörämekaanikkoista ja kilpapyöräilijöistä.</p>
         </div>
-
-        <!-- Oppaat -->
-        <div class="footer-col">
-          <h4>Oppaat</h4>
-          <ul class="footer-links">
-            <li><a href="guides.html">Huolto-ohjeet</a></li>
-            <li><a href="guides.html">Vaihteisto</a></li>
-            <li><a href="guides.html">Jarrut</a></li>
-            <li><a href="guides.html">Renkaat</a></li>
-            <li><a href="guides.html">Sähköpyörät</a></li>
-          </ul>
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">✅</div>
+          <h3>Laadukas sisältö</h3>
+          <p>Kaikki oppaat testataan kentällä ennen julkaisua. Ei teoriaa ilman käytäntöä.</p>
         </div>
-
-        <!-- Reitit -->
-        <div class="footer-col">
-          <h4>Reitit</h4>
-          <ul class="footer-links">
-            <li><a href="routes.html">Maastopyöräily</a></li>
-            <li><a href="routes.html">Maantie</a></li>
-            <li><a href="routes.html">Gravel</a></li>
-            <li><a href="routes.html">Kaupunkiajelu</a></li>
-          </ul>
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">🆓</div>
+          <h3>Ilmainen sisältö</h3>
+          <p>Yli 300 artikkelia täysin ilmaiseksi. Ei rekisteröitymistä, ei maksumuureja.</p>
         </div>
-
-        <!-- Sivusto -->
-        <div class="footer-col">
-          <h4>Sivusto</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">Tietoa meistä</a></li>
-            <li><a href="contact.html">Ota yhteyttä</a></li>
-            <li><a href="#">Tietosuoja</a></li>
-            <li><a href="#">Käyttöehdot</a></li>
-          </ul>
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">📱</div>
+          <h3>Aina käytettävissä</h3>
+          <p>Sivusto toimii sujuvasti kaikilla laitteilla – myös maastossa mobiililla.</p>
         </div>
-
-      </div><!-- /footer-grid -->
-
-      <div class="footer-bottom">
-        <span>© 2025 BikeDoc. Kaikki oikeudet pidätetään.</span>
-        <span>Tehty ❤️ pyöräilijöiden puolesta</span>
       </div>
 
     </div>
+  </section><!-- /miksi valita -->
+
+
+  <!-- ======================================================
+       5. TIETOA MEISTÄ – vaalea tausta + 2 saraketta
+       ====================================================== -->
+  <section class="section about-section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Kuva vasemmalla -->
+        <div class="about-img">
+          <!-- Korvaa: <img src="images/about.jpg" alt="Tiimi huoltaa pyörää"> -->
+          <div class="img-placeholder"
+               style="background:linear-gradient(135deg,#e85d04,#c44b00)"
+               aria-hidden="true">🚲</div>
+        </div>
+
+        <!-- Teksti oikealla -->
+        <div class="about-text">
+          <span class="eyebrow">Tietoa meistä</span>
+          <h2 id="about-heading">Pyöräilijöiden tekemä,<br>pyöräilijöille</h2>
+          <p>BikeDoc syntyi 2020 kun ryhmä pyöräilyharrastajia huomasi
+             suomenkielisen laadukkaan pyöräilyoppaan puutteen.
+             Tänään meillä on yli 300 artikkelia ja kymmeniätuhansia lukijoita.</p>
+          <ul class="check-list">
+            <li>Perustettu 2020, kasvanut nopeasti</li>
+            <li>Sertifioidut pyörämekaanikot kirjoittajina</li>
+            <li>Säännöllisesti päivitetty sisältö</li>
+            <li>Täysin suomenkielinen palvelu</li>
+          </ul>
+          <a href="about.html" class="btn btn-primary">Lue lisää meistä</a>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- /tietoa -->
+
+
+  <!-- ======================================================
+       6. LOGORIVI – harmaa tausta + brändilogot
+       ====================================================== -->
+  <div class="logo-row" aria-label="Yhteistyökumppanit">
+    <div class="container">
+      <p class="logo-row-label">Yhteistyökumppanimme</p>
+      <div class="logos">
+        <span class="brand-logo">Shimano</span>
+        <span class="brand-logo">Trek</span>
+        <span class="brand-logo">Specialized</span>
+        <span class="brand-logo">Giant</span>
+        <span class="brand-logo">Garmin</span>
+        <span class="brand-logo">GoPro</span>
+      </div>
+    </div>
+  </div><!-- /logorivi -->
+
+
+  <!-- ======================================================
+       7. KOLMEN LAATIKON OSIO
+       ====================================================== -->
+  <section class="section three-boxes" aria-label="Arvostelut, varaus ja UKK">
+    <div class="container">
+      <div class="boxes-grid">
+
+        <!-- Arvostelut -->
+        <div class="box box-reviews">
+          <h3>Mitä lukijat sanovat?</h3>
+          <div class="reviews">
+            <div class="review">
+              <div class="stars" aria-label="5 tähteä">★★★★★</div>
+              <p>"BikeDoc on paras suomenkielinen pyöräilysivusto.
+                 Vaihteiston säätöopas pelasti ajoleni!"</p>
+              <cite>– Mikael K., Helsinki</cite>
+            </div>
+            <div class="review">
+              <div class="stars" aria-label="5 tähteä">★★★★★</div>
+              <p>"Nuuksion reittiopas oli täydellinen.
+                 GPX-tiedosto toimi suoraan Garminin kanssa."</p>
+              <cite>– Sara L., Espoo</cite>
+            </div>
+            <div class="review">
+              <div class="stars" aria-label="5 tähteä">★★★★★</div>
+              <p>"Kypärävertailu auttoi valitsemaan oikean varusteen.
+                 Selkeä ja puolueeton arvio."</p>
+              <cite>– Juhani P., Tampere</cite>
+            </div>
+          </div>
+        </div><!-- /arvostelut -->
+
+        <!-- Varaus CTA -->
+        <div class="box box-booking">
+          <div class="booking-inner">
+            <span class="booking-icon" aria-hidden="true">📅</span>
+            <h3>Varaa pyörän huolto</h3>
+            <p>Tuo pyöräsi ammattilaisten huoltoon.
+               Nopea ja edullinen palvelu kaikille pyörätyypeille.</p>
+            <a href="contact.html" class="btn btn-white">Varaa aika nyt</a>
+            <p class="booking-note">Vapaat ajat usein jo samalle viikolle</p>
+          </div>
+        </div><!-- /varaus -->
+
+        <!-- FAQ accordion -->
+        <div class="box box-faq">
+          <h3>Usein kysytyt kysymykset</h3>
+          <div class="faq" role="list">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Onko sisältö ilmaista?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" hidden>
+                <p>Kyllä! Kaikki oppaat ja reitit ovat täysin ilmaisia –
+                   ei rekisteröitymistä, ei maksumuureja.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Miten varaan huoltoajan?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" hidden>
+                <p>Käytä yhteydenottolomaketta tai soita suoraan numeroomme.
+                   Vastaamme 1–2 arkipäivässä.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Voinko ehdottaa uutta opasta?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" hidden>
+                <p>Ehdottomasti! Lähetä idea yhteystietolomakkeella.
+                   Käymme kaikki ehdotukset läpi.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-q" aria-expanded="false">
+                <span>Teettekö yhteistyötä yritysten kanssa?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a" hidden>
+                <p>Kyllä. Toimituksellinen riippumattomuus säilyy aina.
+                   Kaikki yhteistyöt merkitään avoimesti.</p>
+              </div>
+            </div>
+
+          </div><!-- /faq -->
+        </div><!-- /faq-box -->
+
+      </div><!-- /boxes-grid -->
+    </div>
+  </section><!-- /kolmen-kaatikot -->
+
+
+  <!-- ======================================================
+       8. FOOTER – 4 saraketta
+       ====================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+
+      <!-- Sarake 1: Logo + teksti + some -->
+      <div class="fc fc-brand">
+        <a href="index.html" class="logo logo-footer" aria-label="BikeDoc etusivu">
+          Bike<span>Doc</span>
+        </a>
+        <p>Kattava pyöräilyn tietopankki – huolto-oppaat, reittivinkit ja
+           varustearviot yhdessä paikassa.</p>
+        <div class="social-links" aria-label="Sosiaalinen media">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sarake 2: Yhteystiedot -->
+      <div class="fc">
+        <h4>Yhteystiedot</h4>
+        <ul class="fc-list contact-list">
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            BikeDoc Oy
+          </li>
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Pyöräkatu 12, 00100 Helsinki
+          </li>
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
+                       A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67
+                       A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72
+                       c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9
+                       a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
+                       c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <a href="tel:+358401234567">+358 40 123 4567</a>
+          </li>
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:info@bikedoc.fi">info@bikedoc.fi</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Sarake 3: Aukioloajat -->
+      <div class="fc">
+        <h4>Aukioloajat</h4>
+        <ul class="fc-list hours-list">
+          <li><span>Maanantai–Perjantai</span><span>9:00–18:00</span></li>
+          <li><span>Lauantai</span><span>10:00–16:00</span></li>
+          <li><span>Sunnuntai</span><span>Suljettu</span></li>
+        </ul>
+        <p class="hours-note">Huoltovaraukset myös verkossa</p>
+      </div>
+
+      <!-- Sarake 4: Päävalikko -->
+      <div class="fc">
+        <h4>Sivusto</h4>
+        <ul class="fc-list nav-list">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut</a></li>
+          <li><a href="routes.html">Reitit</a></li>
+          <li><a href="guides.html">Oppaat</a></li>
+          <li><a href="about.html">Tietoa meistä</a></li>
+          <li><a href="contact.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /footer-grid -->
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 BikeDoc. Kaikki oikeudet pidätetään.</span>
+        <nav aria-label="Alatason navigaatio">
+          <a href="#">Tietosuoja</a>
+          <a href="#">Käyttöehdot</a>
+        </nav>
+      </div>
+    </div>
+
   </footer><!-- /footer -->
 
 
-  <!-- ============================================================
-       JAVASCRIPT – Hamburger-valikko
-       ============================================================ -->
+  <!-- ======================================================
+       JAVASCRIPT – Hamburger-valikko + FAQ-accordion
+       ====================================================== -->
   <script>
     (function () {
-      const hamburger  = document.getElementById('hamburger');
-      const navLinks   = document.getElementById('navbar-links');
+
+      /* --- Hamburger-navigaatio --- */
+      var hamburger = document.getElementById('hamburger');
+      var nav       = document.getElementById('main-nav');
 
       hamburger.addEventListener('click', function () {
-        const isOpen = navLinks.classList.toggle('open');
-        hamburger.classList.toggle('open', isOpen);
-        hamburger.setAttribute('aria-expanded', isOpen);
+        var open = nav.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
       });
 
-      // Sulje valikko kun klikataan linkkiä (mobiili UX)
-      navLinks.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          navLinks.classList.remove('open');
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
         });
       });
 
-      // Sulje valikko kun klikataan navbarin ulkopuolelle
       document.addEventListener('click', function (e) {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-          navLinks.classList.remove('open');
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
           hamburger.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
         }
       });
+
+      /* --- FAQ accordion --- */
+      document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var item   = btn.parentElement;
+          var answer = btn.nextElementSibling;
+          var icon   = btn.querySelector('.faq-icon');
+          var isOpen = item.classList.contains('open');
+
+          /* Sulje kaikki */
+          document.querySelectorAll('.faq-item').forEach(function (i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            i.querySelector('.faq-icon').textContent = '+';
+            i.querySelector('.faq-a').hidden = true;
+          });
+
+          /* Avaa valittu (jos ei ollut jo auki) */
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            icon.textContent = '−';
+            answer.hidden = false;
+          }
+        });
+      });
+
     })();
   </script>
 
