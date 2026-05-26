@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BikeDoc – Pyöräilyn asiantuntija</title>
-  <meta name="description" content="BikeDoc tarjoaa pyöräilypalvelut, huolto-oppaat, reittineuvonnan ja varustearviot." />
+  <title>BikeDoc – Pyörähuolto &amp; pyöräkauppa</title>
+  <meta name="description" content="BikeDoc tarjoaa ammattitaitoisen pyörähuollon, uusien ja käytettyjen pyörien myynnin sekä kaiken tarvittavan pyöräilyyn. Helsinki." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -37,11 +37,11 @@
       <nav class="main-nav" id="main-nav" role="navigation" aria-label="Päänavigaatio">
         <ul>
           <li><a href="index.html" class="active" aria-current="page">Etusivu</a></li>
-          <li><a href="palvelut.html">Palvelut</a></li>
-          <li><a href="routes.html">Reitit</a></li>
-          <li><a href="guides.html">Oppaat</a></li>
-          <li><a href="about.html">Tietoa</a></li>
-          <li><a href="contact.html">Yhteystiedot</a></li>
+          <li><a href="palvelut.html">Palvelut ja hinnasto</a></li>
+          <li><a href="huoltovaraus.html">Huoltovaraus</a></li>
+          <li><a href="pyorat.html">Pyörät</a></li>
+          <li><a href="kaytetyt.html">Käytetyt pyörät</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
         </ul>
       </nav>
 
@@ -77,15 +77,15 @@
 
       <!-- Vasen: pääsisältö -->
       <div class="hero-content">
-        <span class="hero-eyebrow">Suomen johtava pyöräilypalvelu</span>
-        <h1 id="hero-heading">Löydä intohimosi<br><em>pyörän selässä</em></h1>
-        <p>Kattavat huolto-ohjeet, inspiroivat reittivinkit ja asiantuntevat
-           varustearviot – kaikki samassa paikassa.</p>
+        <span class="hero-eyebrow">Ammattitaitoinen pyörähuolto Helsingissä</span>
+        <h1 id="hero-heading">Pyöräsi ansaitsee<br><em>parhaan huollon</em></h1>
+        <p>Kokeneet mekaanikkamme huoltavat pyöräsi nopeasti ja laadukkaasti.
+           Myymme myös uusia ja käytettyjä pyöriä edullisesti.</p>
 
         <!-- CTA-napit -->
         <div class="hero-buttons">
-          <a href="guides.html" class="btn btn-primary">Selaa oppaita</a>
-          <a href="contact.html" class="btn btn-ghost">Ota yhteyttä</a>
+          <a href="huoltovaraus.html" class="btn btn-primary">Varaa huoltoaika</a>
+          <a href="palvelut.html" class="btn btn-ghost">Palvelut &amp; hinnasto</a>
         </div>
 
         <!-- 3 feature-ikonielementtiä -->
@@ -93,22 +93,22 @@
           <div class="hero-feat">
             <span class="hf-icon" aria-hidden="true">🔧</span>
             <div>
-              <strong>120+ opasta</strong>
-              <span>Huolto &amp; vinkit</span>
+              <strong>500+ huoltoa</strong>
+              <span>Vuosittain</span>
             </div>
           </div>
           <div class="hero-feat">
-            <span class="hf-icon" aria-hidden="true">🗺️</span>
+            <span class="hf-icon" aria-hidden="true">⚡</span>
             <div>
-              <strong>85 reittiä</strong>
-              <span>Kaikille tasoille</span>
+              <strong>1–3 pv</strong>
+              <span>Toimitusaika</span>
             </div>
           </div>
           <div class="hero-feat">
             <span class="hf-icon" aria-hidden="true">⭐</span>
             <div>
               <strong>4.9 / 5</strong>
-              <span>Lukija-arvio</span>
+              <span>Asiakasarvio</span>
             </div>
           </div>
         </div>
@@ -117,8 +117,8 @@
       <!-- Oikea: dekoratiivinen elementti (korvaa kuvalla halutessasi) -->
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-card">
-          <span class="hc-icon">🚲</span>
-          <p>Yli <strong>12 000</strong> kuukausikävijää</p>
+          <span class="hc-icon">�</span>
+          <p>Yli <strong>1 500</strong> tyytyväistä asiakasta</p>
         </div>
         <div class="hero-badge">⭐ 4.9 / 5 · 380+ arvostelua</div>
       </div>
@@ -135,7 +135,7 @@
 
       <div class="section-head center">
         <h2 id="services-heading">Palvelumme</h2>
-        <p>Kaikki pyöräilijän tarpeet yhdessä paikassa</p>
+        <p>Ammattitaitoinen pyörähuolto kaikille merkeille ja tyypeille</p>
       </div>
 
       <div class="services-grid">
@@ -145,39 +145,43 @@
           <div class="srv-img" style="background:linear-gradient(135deg,#1c2841,#0f3460)"
                aria-hidden="true">🔧</div>
           <div class="srv-body">
-            <h3>Pyörän huolto</h3>
-            <p>Ammattimainen huolto kaikille pyörätyypeille. Vaihteisto, jarrut, renkaat ja koko pyörä kuntoon.</p>
-            <a href="palvelut.html" class="srv-link">Lue lisää →</a>
+            <h3>Perushuolto</h3>
+            <p>Kattava perushuolto sisältää jarrujen säädön, vaihteiston säädön,
+               renkaiden tarkistuksen ja voitelun. Alkaen 59 €.</p>
+            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
           </div>
         </article>
 
         <article class="srv-card">
           <div class="srv-img" style="background:linear-gradient(135deg,#16213e,#533483)"
-               aria-hidden="true">🗺️</div>
+               aria-hidden="true">�</div>
           <div class="srv-body">
-            <h3>Reittiopas</h3>
-            <p>Parhaat pyöräilyreitit GPX-tiedostoineen. Maasto, maantie ja gravel kaikille tasoille.</p>
-            <a href="routes.html" class="srv-link">Lue lisää →</a>
+            <h3>Renkaanvaihto &amp; tuubaus</h3>
+            <p>Nopea renkaanvaihto, sisä- tai ulkorenkaan vaihto,
+               tubeless-asennus sekä paikkaus. Alkaen 15 €.</p>
+            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
           </div>
         </article>
 
         <article class="srv-card">
           <div class="srv-img" style="background:linear-gradient(135deg,#11998e,#38ef7d)"
-               aria-hidden="true">⭐</div>
+               aria-hidden="true">⚙️</div>
           <div class="srv-body">
-            <h3>Varustearviot</h3>
-            <p>Puolueettomat testit – kypärät, vaatteet, pyörät ja lisävarusteet selkeästi vertailtu.</p>
-            <a href="guides.html" class="srv-link">Lue lisää →</a>
+            <h3>Vaihteisto &amp; jarrut</h3>
+            <p>Vaijerin vaihto, siirtäjän säätö, hydraulijarrujen huolto
+               ja kalibrointi. Alkaen 25 €.</p>
+            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
           </div>
         </article>
 
         <article class="srv-card">
           <div class="srv-img" style="background:linear-gradient(135deg,#e85d04,#c44b00)"
-               aria-hidden="true">💬</div>
+               aria-hidden="true">⚡</div>
           <div class="srv-body">
-            <h3>Yhteisö &amp; kurssit</h3>
-            <p>Liity aktiiviseen pyöräilyyhteisöön. Kursseja aloittelijoille ja edistyneille.</p>
-            <a href="about.html" class="srv-link">Lue lisää →</a>
+            <h3>Sähköpyörän huolto</h3>
+            <p>Akun testaus ja vaihto, moottorin huolto, ohjelmistopäivitys
+               sekä sähköjärjestelmän diagnostiikka.</p>
+            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
           </div>
         </article>
 
@@ -194,29 +198,33 @@
 
       <div class="section-head center light">
         <h2 id="why-heading">Miksi valita BikeDoc?</h2>
-        <p>Olemme pyöräilijöiden luottama kumppani jo vuodesta 2020</p>
+        <p>Yli 1 500 tyytyväistä asiakasta – vuodesta 2020 lähtien</p>
       </div>
 
       <div class="why-grid">
         <div class="why-item">
           <div class="why-icon" aria-hidden="true">🏆</div>
-          <h3>Asiantuntemus</h3>
-          <p>Tiimimme koostuu sertifioiduista pyörämekaanikkoista ja kilpapyöräilijöistä.</p>
+          <h3>Sertifioidut mekaanikot</h3>
+          <p>Tiimimme on koulutettu kaikille suurimmille merkeille.
+             Luotettava työ ja rehellinen hinta-arvio ennen työn aloitusta.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">⚡</div>
+          <h3>Nopea toimitusaika</h3>
+          <p>Perushuolto usein valmiina jo seuraavana päivänä.
+             Kiirehuolto mahdollinen sopimuksen mukaan.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon" aria-hidden="true">💸</div>
+          <h3>Selkeä hinnasto</h3>
+          <p>Ei piilokuluja. Näet hinnan aina ennen kuin
+             työ aloitetaan – takuuvarmasti.</p>
         </div>
         <div class="why-item">
           <div class="why-icon" aria-hidden="true">✅</div>
-          <h3>Laadukas sisältö</h3>
-          <p>Kaikki oppaat testataan kentällä ennen julkaisua. Ei teoriaa ilman käytäntöä.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">🆓</div>
-          <h3>Ilmainen sisältö</h3>
-          <p>Yli 300 artikkelia täysin ilmaiseksi. Ei rekisteröitymistä, ei maksumuureja.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">📱</div>
-          <h3>Aina käytettävissä</h3>
-          <p>Sivusto toimii sujuvasti kaikilla laitteilla – myös maastossa mobiililla.</p>
+          <h3>Takuu työllemme</h3>
+          <p>Annamme 3 kuukauden takuun kaikille huoltotöille.
+             Varaosat alkuperäisiä tai laadukkaita vastaavia.</p>
         </div>
       </div>
 
@@ -242,17 +250,17 @@
         <!-- Teksti oikealla -->
         <div class="about-text">
           <span class="eyebrow">Tietoa meistä</span>
-          <h2 id="about-heading">Pyöräilijöiden tekemä,<br>pyöräilijöille</h2>
-          <p>BikeDoc syntyi 2020 kun ryhmä pyöräilyharrastajia huomasi
-             suomenkielisen laadukkaan pyöräilyoppaan puutteen.
-             Tänään meillä on yli 300 artikkelia ja kymmeniätuhansia lukijoita.</p>
+          <h2 id="about-heading">Intohimomme on<br>pitää sinun pyöräsi kunnossa</h2>
+          <p>BikeDoc avasi ovensa 2020 Helsingissä. Meillä on vuosien kokemus
+             kaiken tyyppisistä pyöristä – kaupunkipyöristä huipputason
+             maastopyöriin ja sähköpyöriin.</p>
           <ul class="check-list">
-            <li>Perustettu 2020, kasvanut nopeasti</li>
-            <li>Sertifioidut pyörämekaanikot kirjoittajina</li>
-            <li>Säännöllisesti päivitetty sisältö</li>
-            <li>Täysin suomenkielinen palvelu</li>
+            <li>Sertifioidut pyörämekaanikot</li>
+            <li>Huolto kaikille merkeille ja tyypeille</li>
+            <li>Alkuperäiset varaosat ja laadukkaat vastineet</li>
+            <li>Selkeä hinnasto ilman piilokuluja</li>
           </ul>
-          <a href="about.html" class="btn btn-primary">Lue lisää meistä</a>
+          <a href="huoltovaraus.html" class="btn btn-primary">Varaa huoltoaika</a>
         </div>
 
       </div>
@@ -271,8 +279,8 @@
         <span class="brand-logo">Trek</span>
         <span class="brand-logo">Specialized</span>
         <span class="brand-logo">Giant</span>
-        <span class="brand-logo">Garmin</span>
-        <span class="brand-logo">GoPro</span>
+        <span class="brand-logo">Scott</span>
+        <span class="brand-logo">Cannondale</span>
       </div>
     </div>
   </div><!-- /logorivi -->
@@ -287,24 +295,24 @@
 
         <!-- Arvostelut -->
         <div class="box box-reviews">
-          <h3>Mitä lukijat sanovat?</h3>
+          <h3>Mitä asiakkaamme sanovat?</h3>
           <div class="reviews">
             <div class="review">
               <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>"BikeDoc on paras suomenkielinen pyöräilysivusto.
-                 Vaihteiston säätöopas pelasti ajoleni!"</p>
+              <p>”Toi maastopyöräni perushuoltoon – hinta-arvio tuli heti ja
+                 pyörä oli valmis seuraavana päivänä. Huippupalvelu!”</p>
               <cite>– Mikael K., Helsinki</cite>
             </div>
             <div class="review">
               <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>"Nuuksion reittiopas oli täydellinen.
-                 GPX-tiedosto toimi suoraan Garminin kanssa."</p>
+              <p>”Sähköpyörän akku vaihdettiin ja vaihteisto säädettiin.
+                 Ammattitaitoinen tiimi, suosittelen lämpöisesti!”</p>
               <cite>– Sara L., Espoo</cite>
             </div>
             <div class="review">
               <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>"Kypärävertailu auttoi valitsemaan oikean varusteen.
-                 Selkeä ja puolueeton arvio."</p>
+              <p>”Ostin käytetyn gravel-pyörän BikeDocilta. Laatu vastasi
+                 täysin kuvausta. Ehdottomasti paras kauppa!”</p>
               <cite>– Juhani P., Tampere</cite>
             </div>
           </div>
@@ -317,7 +325,7 @@
             <h3>Varaa pyörän huolto</h3>
             <p>Tuo pyöräsi ammattilaisten huoltoon.
                Nopea ja edullinen palvelu kaikille pyörätyypeille.</p>
-            <a href="contact.html" class="btn btn-white">Varaa aika nyt</a>
+          <a href="huoltovaraus.html" class="btn btn-white">Varaa aika nyt</a>
             <p class="booking-note">Vapaat ajat usein jo samalle viikolle</p>
           </div>
         </div><!-- /varaus -->
@@ -390,8 +398,8 @@
         <a href="index.html" class="logo logo-footer" aria-label="BikeDoc etusivu">
           Bike<span>Doc</span>
         </a>
-        <p>Kattava pyöräilyn tietopankki – huolto-oppaat, reittivinkit ja
-           varustearviot yhdessä paikassa.</p>
+        <p>Ammattitaitoinen pyörähuolto ja -kauppa Helsingissä.
+           Uudet ja käytetyt pyörät, huolto kaikille merkeille.</p>
         <div class="social-links" aria-label="Sosiaalinen media">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
              aria-label="Facebook">
@@ -470,11 +478,11 @@
         <h4>Sivusto</h4>
         <ul class="fc-list nav-list">
           <li><a href="index.html">Etusivu</a></li>
-          <li><a href="palvelut.html">Palvelut</a></li>
-          <li><a href="routes.html">Reitit</a></li>
-          <li><a href="guides.html">Oppaat</a></li>
-          <li><a href="about.html">Tietoa meistä</a></li>
-          <li><a href="contact.html">Yhteystiedot</a></li>
+          <li><a href="palvelut.html">Palvelut ja hinnasto</a></li>
+          <li><a href="huoltovaraus.html">Huoltovaraus</a></li>
+          <li><a href="pyorat.html">Pyörät</a></li>
+          <li><a href="kaytetyt.html">Käytetyt pyörät</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
         </ul>
       </div>
 
