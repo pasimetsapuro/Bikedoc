@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Käytetyt pyörät – BikeDoc</title>
+  <meta name="description" content="BikeDocin käytetyt pyörät – tarkastetut ja huolletut käytetyt maantie-, maasto-, gravel- ja sähköpyörät. Edulliset hinnat, 3 kk takuu." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container hdr-inner">
+      <a href="index.html" class="logo" aria-label="BikeDoc etusivu">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="5.5" cy="17.5" r="3.5"/>
+          <circle cx="18.5" cy="17.5" r="3.5"/>
+          <path d="M15 6h-4l-2 5.5-3-3.5H3"/>
+          <path d="M15 6l2.5 5.5"/>
+        </svg>
+        Bike<span>Doc</span>
+      </a>
+      <button class="hamburger" id="hamburger"
+              aria-label="Avaa valikko" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" role="navigation" aria-label="Päänavigaatio">
+        <ul>
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut ja hinnasto</a></li>
+          <li><a href="huoltovaraus.html">Huoltovaraus</a></li>
+          <li><a href="pyorat.html">Pyörät</a></li>
+          <li><a href="kaytetyt.html" class="active" aria-current="page">Käytetyt pyörät</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+358401234567" class="hdr-phone" aria-label="Soita meille">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
+                   A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67
+                   A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72
+                   c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9
+                   a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
+                   c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        +358 40 123 4567
+      </a>
+    </div>
+  </header>
+
+  <!-- Yläbanneri -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-eyebrow">Tarkastettu &amp; huollettu</span>
+      <h1>Käytetyt pyörät</h1>
+      <p>Kaikki käytetyt pyörämme on tarkastettu ja huollettu ennen myyntiä. 3 kk työtakuu.</p>
+    </div>
+  </section>
+
+  <!-- Info-palkki -->
+  <div style="background: #fff3e0; padding: 1rem 0;">
+    <div class="container" style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;font-size:0.9rem;color:#444;">
+      <span>✅ <strong>Tarkastettu</strong> – mekaaninen kuntotarkistus</span>
+      <span>🔧 <strong>Huollettu</strong> – tarvittavat huoltotyöt tehty</span>
+      <span>📋 <strong>Kuntoluokka</strong> – kuvauksessa jokaisessa ilmoituksessa</span>
+      <span>🛡️ <strong>3 kk takuu</strong> – kaikille käytetyille pyörille</span>
+    </div>
+  </div>
+
+  <!-- Käytettyjen pyörien listaus -->
+  <section class="section" style="background: var(--clr-light);">
+    <div class="container">
+
+      <!-- Filtterit -->
+      <div class="filter-bar" role="group" aria-label="Suodata pyörätyypin mukaan">
+        <button class="filter-btn active" data-filter="all">Kaikki</button>
+        <button class="filter-btn" data-filter="maantie">Maantie</button>
+        <button class="filter-btn" data-filter="maasto">Maasto</button>
+        <button class="filter-btn" data-filter="gravel">Gravel</button>
+        <button class="filter-btn" data-filter="kaupunki">Kaupunki</button>
+        <button class="filter-btn" data-filter="sahko">Sähköpyörät</button>
+      </div>
+
+      <div class="bike-grid">
+
+        <div class="bike-card" data-category="maantie">
+          <div class="bike-img" aria-hidden="true">🚴</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
+            <h3>Trek Domane AL 3 (2021)</h3>
+            <div class="bike-price">749 €</div>
+            <p>Pyörä on hyvässä kunnossa. Shimano Sora 9v, hydraulijarrut. Ajettu n. 2 000 km. Renkaiden kuluma normaali.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+        <div class="bike-card" data-category="maasto">
+          <div class="bike-img" aria-hidden="true">🏔️</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Erinomainen</span>
+            <h3>Specialized Stumpjumper Comp (2022)</h3>
+            <div class="bike-price">1 999 €</div>
+            <p>Kuten uusi, käytetty vain muutamilla ajoilla. Full-suspension, SRAM GX Eagle 12v, Fox-jousitus.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+        <div class="bike-card" data-category="gravel">
+          <div class="bike-img" aria-hidden="true">🛤️</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
+            <h3>Giant Revolt Advanced 2 (2020)</h3>
+            <div class="bike-price">1 299 €</div>
+            <p>Hiilikuituinen gravel-pyörä. Shimano GRX 11v, tubeless-renkaat. Pieniä pintanaarmuja, mekaanisesti moitteeton.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+        <div class="bike-card" data-category="sahko">
+          <div class="bike-img" aria-hidden="true">⚡</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
+            <h3>Bosch Active Line+ (2021)</h3>
+            <div class="bike-price">1 649 €</div>
+            <p>Kaupunkisähköpyörä, akku 80 % kapasiteetissa. Hydraulijarrut, integroidut valot, tavarateline.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+        <div class="bike-card" data-category="kaupunki">
+          <div class="bike-img" aria-hidden="true">🏙️</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Tyydyttävä</span>
+            <h3>Trek FX 2 Disc (2020)</h3>
+            <div class="bike-price">499 €</div>
+            <p>Kaupunki/fitness-pyörä levyjarruilla. Normaalia kulumaa, jarrut ja vaihteisto juuri huollettu. Toimii moitteetta.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+        <div class="bike-card" data-category="maantie">
+          <div class="bike-img" aria-hidden="true">🚴</div>
+          <div class="bike-body">
+            <span class="bike-badge badge-used">Käytetty · Kunto: Erinomainen</span>
+            <h3>Cannondale Synapse 105 (2023)</h3>
+            <div class="bike-price">1 499 €</div>
+            <p>Vain yksi kausi ajettu. Shimano 105 12v, endurence-geometria, uudet renkaat. Kuin uusi pyörä.</p>
+            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
+          </div>
+        </div>
+
+      </div><!-- /bike-grid -->
+
+      <!-- Myy pyörä -->
+      <div style="margin-top:3rem;background:#fff;border-radius:12px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.07);text-align:center;">
+        <h2 style="margin-bottom:0.75rem;">Haluatko myydä pyöräsi?</h2>
+        <p style="color:#555;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;">
+          Ostamme pyöriä suoraan tai otamme ne myyntiin komissiolla.
+          Ota yhteyttä niin annamme ilmaisen arvion.
+        </p>
+        <a href="yhteystiedot.html" class="btn btn-primary">Ota yhteyttä</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="fc fc-brand">
+        <a href="index.html" class="logo" aria-label="BikeDoc etusivu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="5.5" cy="17.5" r="3.5"/>
+            <circle cx="18.5" cy="17.5" r="3.5"/>
+            <path d="M15 6h-4l-2 5.5-3-3.5H3"/>
+            <path d="M15 6l2.5 5.5"/>
+          </svg>
+          Bike<span>Doc</span>
+        </a>
+        <p>Ammattitaitoinen pyörähuolto ja -kauppa Helsingissä.
+           Uudet ja käytetyt pyörät, huolto kaikille merkeille.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="fc">
+        <h4>Yhteystiedot</h4>
+        <ul class="fc-list contact-list">
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Pyöräkatu 12, 00100 Helsinki
+          </li>
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <a href="tel:+358401234567">+358 40 123 4567</a>
+          </li>
+          <li>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:info@bikedoc.fi">info@bikedoc.fi</a>
+          </li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Aukioloajat</h4>
+        <ul class="fc-list hours-list">
+          <li><span>Maanantai–Perjantai</span><span>9:00–18:00</span></li>
+          <li><span>Lauantai</span><span>10:00–16:00</span></li>
+          <li><span>Sunnuntai</span><span>Suljettu</span></li>
+        </ul>
+        <p class="hours-note">Huoltovaraukset myös verkossa</p>
+      </div>
+      <div class="fc">
+        <h4>Sivusto</h4>
+        <ul class="fc-list nav-list">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="palvelut.html">Palvelut ja hinnasto</a></li>
+          <li><a href="huoltovaraus.html">Huoltovaraus</a></li>
+          <li><a href="pyorat.html">Pyörät</a></li>
+          <li><a href="kaytetyt.html">Käytetyt pyörät</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 BikeDoc. Kaikki oikeudet pidätetään.</span>
+        <nav aria-label="Alatason navigaatio">
+          <a href="#">Tietosuoja</a>
+          <a href="#">Käyttöehdot</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var hamburger = document.getElementById('hamburger');
+      var nav       = document.getElementById('main-nav');
+      hamburger.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.addEventListener('click', function (e) {
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      /* Filter-napit */
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var bikeCards  = document.querySelectorAll('.bike-card');
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          bikeCards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
