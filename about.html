@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tietoa meistä – BikeDoc</title>
+  <meta name="description" content="Tutustu BikeDoc-tiimiin ja tarinamme takana. Olemme pyöräilyharrastajia, jotka haluavat jakaa tietoa kaikille." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGAATIO (sama kaikilla sivuilla – päivitä active-luokka)
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Päänavigaatio">
+    <div class="container">
+
+      <a href="index.html" class="navbar-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 16.5A3.5 3.5 0 1 0 5 23.5 3.5 3.5 0 0 0 5 16.5zm14 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 3l-1.5 5H7l3 4H6.5L5 16h3.18a4.5 4.5 0 0 1 8.64 0H19l-1.5-4H14l-3-4h2.5L12 3z"/>
+        </svg>
+        Bike<span>Doc</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navbar-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar-links" id="navbar-links" role="list">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="guides.html">Oppaat</a></li>
+        <li><a href="routes.html">Reitit</a></li>
+        <li><a href="about.html" class="active" aria-current="page">Tietoa</a></li>
+        <li><a href="contact.html" class="btn-nav">Ota yhteyttä</a></li>
+      </ul>
+
+    </div>
+  </nav><!-- /navbar -->
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Murupolku">
+        <a href="index.html">Etusivu</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span aria-current="page">Tietoa meistä</span>
+      </nav>
+      <h1>Tietoa BikeDocista</h1>
+      <p>Olemme intohimoisten pyöräilijöiden kokoama tiimi, jonka missio on tehdä pyöräilytiedosta saavutettavaa kaikille.</p>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       PÄÄSISÄLTÖ
+       ============================================================ -->
+  <main id="main-content">
+
+    <!-- Tarina -->
+    <section class="section" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="split-layout">
+
+          <div class="split-image">
+            <!-- Korvaa: <img src="images/about-story.jpg" alt="Tiimi pyöräretkellä"> -->
+            <div class="img-placeholder" style="background: linear-gradient(135deg, #16213e, #0f3460);" aria-hidden="true">🚵</div>
+          </div>
+
+          <div class="split-text">
+            <h2 class="section-title" id="story-heading">Tarinamme</h2>
+            <p>BikeDoc sai alkunsa vuonna 2020, kun muutama pyöräilyystävä huomasi, että suomenkielistä laadukasta pyöräilyopastusta oli vaikea löytää yhdestä paikasta.</p>
+            <p>Aloitimme pienellä blogilla, joka kasvoi nopeasti yhdeksi Suomen suosituimmista pyöräilysivustoista. Tänään meillä on yli 300 artikkelia ja kuukausittain kymmeniätuhansia lukijoita.</p>
+            <ul class="check-list">
+              <li>Perustettu 2020</li>
+              <li>300+ artikkelia</li>
+              <li>12 000+ kuukausikävijää</li>
+              <li>Kaikki sisältö suomeksi</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tiimi -->
+    <section class="section bg-light" aria-labelledby="team-heading">
+      <div class="container">
+
+        <div class="section-header centered">
+          <h2 class="section-title" id="team-heading">Tutustuu tiimiimme</h2>
+          <p class="section-subtitle">Kokeneet pyöräilijät ja kirjoittajat sisältömme takana</p>
+        </div>
+
+        <div class="team-grid">
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">MK</div>
+            <h3>Mikael Korhonen</h3>
+            <p class="role">Päätoimittaja & Perustaja</p>
+            <p>Maastopyöräilyn harrastaja 15 vuoden kokemuslalla. Erikoisalana tekniset polut ja pyörän huolto.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">SL</div>
+            <h3>Sara Leinonen</h3>
+            <p class="role">Reittitoimittaja</p>
+            <p>Maantiepyöräilyn kilpailuhistoria ja intohimo uusiin reitteihin ympäri Suomen ja Euroopan.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #11998e, #38ef7d);" aria-hidden="true">JP</div>
+            <h3>Juhani Peltonen</h3>
+            <p class="role">Varustetoimittaja</p>
+            <p>Sertifioitu pyörämekaanikko. Testaa ja arvioi varusteita puolueettomasti yli 10 vuoden kokemuksella.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #533483, #e96a5c);" aria-hidden="true">AV</div>
+            <h3>Anna Virtanen</h3>
+            <p class="role">Yhteisövastaava</p>
+            <p>Gravel-pyöräilyn intoilija. Vastaa lukijayhteisöstä, somesta ja tapahtumajulkaisuista.</p>
+          </div>
+
+        </div><!-- /team-grid -->
+
+      </div>
+    </section><!-- /tiimi -->
+
+
+    <!-- Arvot -->
+    <section class="section" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="split-layout reverse">
+
+          <div class="split-image">
+            <!-- Korvaa: <img src="images/about-values.jpg" alt="Pyöräilyä luonnossa"> -->
+            <div class="img-placeholder" style="background: linear-gradient(135deg, #e85d04, #533483);" aria-hidden="true">🌲</div>
+          </div>
+
+          <div class="split-text">
+            <h2 class="section-title" id="values-heading">Arvomme</h2>
+            <p>Uskomme, että pyöräily on muutakin kuin liikuntaa – se on tapa kokea maailma, tavata ihmisiä ja löytää itsensä uudelleen.</p>
+            <ul class="check-list">
+              <li>Avoimuus – kaikki tieto vapaasti saatavilla</li>
+              <li>Yhteisöllisyys – yhdessä enemmän</li>
+              <li>Kestävyys – vastuullinen pyöräily</li>
+              <li>Laatu – tarkat ja luotettavat ohjeet</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Ota yhteyttä</a>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /arvot -->
+
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-about-heading">
+      <div class="container">
+        <h2 id="cta-about-heading">Haluatko kirjoittaa meille?</h2>
+        <p>Etsimme aina innokkaita pyöräilijöitä jakamaan kokemuksiaan. Ota yhteyttä ja kerro ideasi!</p>
+        <a href="contact.html" class="btn btn-primary">Lähetä viesti</a>
+      </div>
+    </section>
+
+  </main><!-- /main-content -->
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-logo" style="margin-bottom:0.5rem; display:inline-flex;">
+            Bike<span>Doc</span>
+          </a>
+          <p>Kattava pyöräilyn tietopankki – huolto-oppaat, reittivinkit ja varustearviot yhdessä paikassa.</p>
+          <div class="social-links" aria-label="Sosiaalinen media">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="YouTube">▶️</a>
+            <a href="#" aria-label="Strava">🏅</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Oppaat</h4>
+          <ul class="footer-links">
+            <li><a href="guides.html">Huolto-ohjeet</a></li>
+            <li><a href="guides.html">Vaihteisto</a></li>
+            <li><a href="guides.html">Jarrut</a></li>
+            <li><a href="guides.html">Renkaat</a></li>
+            <li><a href="guides.html">Sähköpyörät</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Reitit</h4>
+          <ul class="footer-links">
+            <li><a href="routes.html">Maastopyöräily</a></li>
+            <li><a href="routes.html">Maantie</a></li>
+            <li><a href="routes.html">Gravel</a></li>
+            <li><a href="routes.html">Kaupunkiajelu</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sivusto</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Tietoa meistä</a></li>
+            <li><a href="contact.html">Ota yhteyttä</a></li>
+            <li><a href="#">Tietosuoja</a></li>
+            <li><a href="#">Käyttöehdot</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 BikeDoc. Kaikki oikeudet pidätetään.</span>
+        <span>Tehty ❤️ pyöräilijöiden puolesta</span>
+      </div>
+    </div>
+  </footer><!-- /footer -->
+
+
+  <!-- JavaScript – Hamburger -->
+  <script>
+    (function () {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('navbar-links');
+
+      hamburger.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

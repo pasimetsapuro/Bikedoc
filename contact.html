@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ota yhteyttä – BikeDoc</title>
+  <meta name="description" content="Ota yhteyttä BikeDoc-tiimiin. Vastaamme palautteeseen, yhteistyöehdotuksiin ja kirjoittajahakemuksiin." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGAATIO
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Päänavigaatio">
+    <div class="container">
+
+      <a href="index.html" class="navbar-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 16.5A3.5 3.5 0 1 0 5 23.5 3.5 3.5 0 0 0 5 16.5zm14 0a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 3l-1.5 5H7l3 4H6.5L5 16h3.18a4.5 4.5 0 0 1 8.64 0H19l-1.5-4H14l-3-4h2.5L12 3z"/>
+        </svg>
+        Bike<span>Doc</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Avaa valikko" aria-expanded="false" aria-controls="navbar-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar-links" id="navbar-links" role="list">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="guides.html">Oppaat</a></li>
+        <li><a href="routes.html">Reitit</a></li>
+        <li><a href="about.html">Tietoa</a></li>
+        <li><a href="contact.html" class="btn-nav active" aria-current="page">Ota yhteyttä</a></li>
+      </ul>
+
+    </div>
+  </nav><!-- /navbar -->
+
+
+  <!-- ============================================================
+       PAGE HERO
+       ============================================================ -->
+  <header class="page-hero" role="banner">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Murupolku">
+        <a href="index.html">Etusivu</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span aria-current="page">Ota yhteyttä</span>
+      </nav>
+      <h1>Ota yhteyttä</h1>
+      <p>Onko sinulla kysyttävää, palautetta tai haluatko kirjoittaa meille? Kuulemme mielellämme sinusta!</p>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       PÄÄSISÄLTÖ
+       ============================================================ -->
+  <main id="main-content">
+
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 class="section-title visually-hidden" id="contact-heading">Yhteydenottolomake</h2>
+
+        <div class="contact-wrapper">
+
+          <!-- Yhteystiedot -->
+          <div class="contact-info">
+            <h3>Yhteystiedot</h3>
+            <p>Vastaamme viesteihin yleensä 1–2 arkipäivän kuluessa. Kirjoittajahakemuksiin vastataan viikon sisällä.</p>
+
+            <div class="contact-detail">
+              <span class="icon" aria-hidden="true">📧</span>
+              <span>info@bikedoc.fi</span>
+            </div>
+            <div class="contact-detail">
+              <span class="icon" aria-hidden="true">📍</span>
+              <span>Helsinki, Suomi</span>
+            </div>
+            <div class="contact-detail">
+              <span class="icon" aria-hidden="true">⏰</span>
+              <span>Ma–Pe, 9:00–17:00</span>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;" />
+
+            <h3>Seuraa meitä</h3>
+            <div class="social-links" style="margin-top:0.75rem;" aria-label="Sosiaalinen media">
+              <a href="#" aria-label="Instagram" style="color:var(--color-text); background: var(--color-light);">📷</a>
+              <a href="#" aria-label="Facebook" style="color:var(--color-text); background: var(--color-light);">📘</a>
+              <a href="#" aria-label="YouTube" style="color:var(--color-text); background: var(--color-light);">▶️</a>
+              <a href="#" aria-label="Strava" style="color:var(--color-text); background: var(--color-light);">🏅</a>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;" />
+
+            <h3>Kirjoita meille</h3>
+            <p>Etsimme aina innokkaita pyöräilyharrastajia kirjoittamaan oppaisiin ja reittikuvauksiin. Mainitse viestissäsi kiinnostuksesi!</p>
+          </div><!-- /contact-info -->
+
+
+          <!-- Lomake -->
+          <div class="contact-form">
+            <!--
+              HUOM: Tämä on HTML-lomake ilman palvelinpuolen käsittelyä.
+              Kytke se Formspree- tai Netlify Forms -palveluun muuttamalla
+              action-attribuutti. Esim. action="https://formspree.io/f/SINUN_ID"
+            -->
+            <form
+              id="contact-form"
+              action="#"
+              method="POST"
+              novalidate
+              aria-label="Yhteydenottolomake"
+            >
+              <!-- Nimi + sähköposti vierekkäin (grid) -->
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="form-group">
+                  <label for="name">Nimi <span aria-hidden="true" style="color:var(--color-primary)">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Etunimi Sukunimi"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Sähköposti <span aria-hidden="true" style="color:var(--color-primary)">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="sinä@esimerkki.fi"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <!-- Aihe -->
+              <div class="form-group">
+                <label for="subject">Aihe <span aria-hidden="true" style="color:var(--color-primary)">*</span></label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Valitse aihe</option>
+                  <option value="palaute">Palaute sivustosta</option>
+                  <option value="sisalto">Sisältöehdotus</option>
+                  <option value="kirjoittaja">Halusin kirjoittaa</option>
+                  <option value="yhteistyo">Yhteistyöehdotus</option>
+                  <option value="muu">Muu asia</option>
+                </select>
+              </div>
+
+              <!-- Viesti -->
+              <div class="form-group">
+                <label for="message">Viesti <span aria-hidden="true" style="color:var(--color-primary)">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Kirjoita viestisi tähän..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Ilmoitus onnistumisesta (piilotettu oletuksena) -->
+              <div id="form-success" role="alert" aria-live="polite" style="display:none; background:#d4edda; color:#155724; padding:1rem; border-radius:var(--radius); margin-bottom:1rem;">
+                ✅ Kiitos viestistäsi! Otamme sinuun yhteyttä pian.
+              </div>
+              <div id="form-error" role="alert" aria-live="polite" style="display:none; background:#f8d7da; color:#721c24; padding:1rem; border-radius:var(--radius); margin-bottom:1rem;">
+                ❌ Jotain meni pieleen. Tarkista kentät ja yritä uudelleen.
+              </div>
+
+              <button type="submit" class="btn btn-primary">Lähetä viesti →</button>
+
+            </form>
+          </div><!-- /contact-form -->
+
+        </div><!-- /contact-wrapper -->
+
+      </div>
+    </section><!-- /contact -->
+
+
+    <!-- UKK / FAQ -->
+    <section class="section bg-light" aria-labelledby="faq-heading">
+      <div class="container">
+
+        <div class="section-header centered">
+          <h2 class="section-title" id="faq-heading">Usein kysytyt kysymykset</h2>
+          <p class="section-subtitle">Löydät vastauksen moneen kysymykseen täältä</p>
+        </div>
+
+        <div style="max-width:720px; margin:0 auto;">
+
+          <details style="background:var(--color-white); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem 1.5rem; margin-bottom:1rem;">
+            <summary style="font-weight:700; cursor:pointer; color:var(--color-dark);">Onko sisältö ilmaista?</summary>
+            <p style="margin-top:0.75rem; color:var(--color-muted); font-size:0.95rem;">Kyllä! Kaikki BikeDocin oppaat, reitit ja arviot ovat täysin ilmaisia. Ei rekisteröitymistä, ei maksumuureja.</p>
+          </details>
+
+          <details style="background:var(--color-white); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem 1.5rem; margin-bottom:1rem;">
+            <summary style="font-weight:700; cursor:pointer; color:var(--color-dark);">Miten voin ehdottaa uutta opasta?</summary>
+            <p style="margin-top:0.75rem; color:var(--color-muted); font-size:0.95rem;">Valitse lomakkeesta aiheeksi "Sisältöehdotus" ja kerro aiheesta. Käymme kaikki ehdotukset läpi ja otamme parhaat mukaan julkaisusuunnitelmaamme.</p>
+          </details>
+
+          <details style="background:var(--color-white); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem 1.5rem; margin-bottom:1rem;">
+            <summary style="font-weight:700; cursor:pointer; color:var(--color-dark);">Teettekö yhteistyötä yritysten kanssa?</summary>
+            <p style="margin-top:0.75rem; color:var(--color-muted); font-size:0.95rem;">Kyllä, harkitsemme asiaankuuluvia yhteistyöpyyntöjä. Kaikki yhteistyöt merkitään avoimesti, ja toimituksellinen riippumattomuus säilyy aina.</p>
+          </details>
+
+          <details style="background:var(--color-white); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem 1.5rem;">
+            <summary style="font-weight:700; cursor:pointer; color:var(--color-dark);">Voinko jakaa BikeDocin sisältöä?</summary>
+            <p style="margin-top:0.75rem; color:var(--color-muted); font-size:0.95rem;">Voit linkittää artikkeleihimme vapaasti. Sisällön kopioiminen kokonaan on kielletty ilman kirjallista lupaa. Ota tarvittaessa yhteyttä.</p>
+          </details>
+
+        </div>
+
+      </div>
+    </section><!-- /faq -->
+
+  </main><!-- /main-content -->
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-logo" style="margin-bottom:0.5rem; display:inline-flex;">
+            Bike<span>Doc</span>
+          </a>
+          <p>Kattava pyöräilyn tietopankki – huolto-oppaat, reittivinkit ja varustearviot yhdessä paikassa.</p>
+          <div class="social-links" aria-label="Sosiaalinen media">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="YouTube">▶️</a>
+            <a href="#" aria-label="Strava">🏅</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Oppaat</h4>
+          <ul class="footer-links">
+            <li><a href="guides.html">Huolto-ohjeet</a></li>
+            <li><a href="guides.html">Vaihteisto</a></li>
+            <li><a href="guides.html">Jarrut</a></li>
+            <li><a href="guides.html">Renkaat</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Reitit</h4>
+          <ul class="footer-links">
+            <li><a href="routes.html">Maastopyöräily</a></li>
+            <li><a href="routes.html">Maantie</a></li>
+            <li><a href="routes.html">Gravel</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sivusto</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Tietoa meistä</a></li>
+            <li><a href="contact.html">Ota yhteyttä</a></li>
+            <li><a href="#">Tietosuoja</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 BikeDoc. Kaikki oikeudet pidätetään.</span>
+        <span>Tehty ❤️ pyöräilijöiden puolesta</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript – Hamburger + lomakevalidointi -->
+  <script>
+    (function () {
+      /* --- Hamburger-valikko --- */
+      const hamburger = document.getElementById('hamburger');
+      const navLinks  = document.getElementById('navbar-links');
+
+      hamburger.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      /* --- Lomake (yksinkertainen client-side validointi) ---
+         Kun kytket lomakkeen oikeaan backendiin (esim. Formspree),
+         poista tämä demo-käsittelijä ja lisää action-attribuutti.
+      */
+      const form    = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+      const error   = document.getElementById('form-error');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        success.style.display = 'none';
+        error.style.display   = 'none';
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          error.style.display = 'block';
+          return;
+        }
+
+        // Demo: näytä onnistumisviesti ilman oikeaa lähetystä
+        success.style.display = 'block';
+        form.reset();
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
