@@ -98,10 +98,10 @@ button { font-family: var(--font); cursor: pointer; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--clr-white);
+  background: #0f0f0f;
   height: var(--hdr-h);
-  border-bottom: 1px solid var(--clr-border);
-  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,.5);
 }
 
 /* Grid: logo | nav (1fr, centered) | phone */
@@ -120,14 +120,14 @@ button { font-family: var(--font); cursor: pointer; }
   gap: 0.45rem;
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--clr-dark);
+  color: #fff;
   letter-spacing: -0.3px;
   text-decoration: none;
   flex-shrink: 0;
 }
 .logo svg { color: var(--clr-primary); flex-shrink: 0; }
 .logo span { color: var(--clr-primary); }
-.logo:hover { color: var(--clr-dark); }
+.logo:hover { color: #fff; }
 
 /* Navigaatio */
 .main-nav { display: flex; justify-content: center; }
@@ -138,7 +138,7 @@ button { font-family: var(--font); cursor: pointer; }
   border-radius: 8px;
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--clr-text);
+  color: rgba(255,255,255,.8);
   transition: color var(--trans), background var(--trans);
   white-space: nowrap;
 }
@@ -155,7 +155,7 @@ button { font-family: var(--font); cursor: pointer; }
   gap: 0.4rem;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--clr-dark);
+  color: rgba(255,255,255,.85);
   text-decoration: none;
   flex-shrink: 0;
   white-space: nowrap;
@@ -177,12 +177,12 @@ button { font-family: var(--font); cursor: pointer; }
   border-radius: 8px;
   transition: background var(--trans);
 }
-.hamburger:hover { background: var(--clr-light); }
+.hamburger:hover { background: rgba(255,255,255,.1); }
 .hamburger span {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--clr-dark);
+  background: rgba(255,255,255,.9);
   border-radius: 2px;
   transition: transform var(--trans), opacity var(--trans);
 }
@@ -197,7 +197,7 @@ button { font-family: var(--font); cursor: pointer; }
   position: relative;
   min-height: calc(100vh - var(--hdr-h));
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background: var(--clr-dark);
   overflow: hidden;
 }
@@ -218,15 +218,14 @@ button { font-family: var(--font); cursor: pointer; }
   background: linear-gradient(100deg, rgba(28,40,65,.95) 45%, rgba(28,40,65,.25) 100%);
 }
 
-/* Hero-sisältö: vasen + oikea */
+/* Hero-sisältö: täysleveä yksisarake */
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
   align-items: center;
   padding: 5rem 0;
+  flex: 1;
 }
 
 /* Silmänauhan teksti */
@@ -252,58 +251,66 @@ button { font-family: var(--font); cursor: pointer; }
   margin-bottom: 1.25rem;
 }
 .hero-content h1 em { color: var(--clr-primary); font-style: normal; }
-.hero-content > p   { font-size: 1.1rem; color: rgba(255,255,255,.75); max-width: 480px; margin-bottom: 2rem; }
+.hero-content > p   { font-size: 1.1rem; color: rgba(255,255,255,.75); max-width: 640px; margin-bottom: 2rem; }
 
 /* CTA-napit */
-.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0; }
 
 /* Feature-elementit */
-.hero-features { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-features { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
 
 .hero-feat {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  flex-direction: column;
+  align-items: flex-start;
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--radius);
-  padding: 0.65rem 1rem;
+  padding: 1.25rem;
   backdrop-filter: blur(6px);
+  flex: 1;
+  min-width: 150px;
 }
-.hf-icon    { font-size: 1.4rem; }
-.hero-feat strong { display: block; color: #fff; font-size: 0.95rem; font-weight: 700; line-height: 1.1; }
-.hero-feat span   { display: block; color: rgba(255,255,255,.6); font-size: 0.78rem; }
-
-/* Oikea: dekoratiivinen */
-.hero-visual {
+.hf-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: var(--clr-primary);
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  margin-bottom: 0.8rem;
+  flex-shrink: 0;
 }
-.hero-card {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  text-align: center;
-  color: #fff;
-  max-width: 280px;
-  width: 100%;
+.hf-icon-wrap svg { color: #fff; }
+.hero-feat strong { display: block; color: #fff; font-size: 0.92rem; font-weight: 700; line-height: 1.35; }
+
+/* Hero kokemuspalkki */
+.hero-bottom-bar {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,.35);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 1.5rem 0;
 }
-.hc-icon         { font-size: 4rem; display: block; margin-bottom: 1rem; }
-.hero-card p     { font-size: 1rem; opacity: 0.85; }
-.hero-card strong { color: var(--clr-primary); font-size: 1.3rem; }
-.hero-badge {
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 30px;
-  padding: 0.5rem 1.25rem;
-  color: rgba(255,255,255,.85);
-  font-size: 0.88rem;
+.hero-bottom-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
+.hero-exp-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--clr-primary);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-exp-icon svg { color: #fff; }
+.hero-exp-text strong { display: block; font-size: 1.05rem; color: #fff; font-weight: 700; margin-bottom: 0.2rem; }
+.hero-exp-text span { font-size: 0.86rem; color: rgba(255,255,255,.6); }
 
 /* ============================================================
    PALVELUT
@@ -496,7 +503,7 @@ button { font-family: var(--font); cursor: pointer; }
    FOOTER
    ============================================================ */
 .site-footer {
-  background: var(--clr-dark-alt);
+  background: #0a0a0a;
   color: rgba(255,255,255,.75);
   padding-top: 4rem;
 }
@@ -634,9 +641,9 @@ button { font-family: var(--font); cursor: pointer; }
     top: var(--hdr-h);
     left: 0;
     right: 0;
-    background: var(--clr-white);
-    border-bottom: 2px solid var(--clr-border);
-    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    background: #0f0f0f;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
     z-index: 999;
     justify-content: flex-start;
   }
@@ -645,7 +652,7 @@ button { font-family: var(--font); cursor: pointer; }
   .main-nav ul li a {
     padding: 0.9rem 1.5rem;
     border-radius: 0;
-    border-bottom: 1px solid var(--clr-border);
+    border-bottom: 1px solid rgba(255,255,255,.07);
     font-size: 1rem;
   }
   .main-nav ul li:last-child a { border-bottom: none; }
@@ -678,12 +685,17 @@ button { font-family: var(--font); cursor: pointer; }
 
 /* Alasivun yläbanneri */
 .page-hero {
-  background: var(--clr-dark);
-  padding: 4rem 0 3rem;
-  text-align: center;
+  background: #0a0a0a;
+  padding: 4rem 0;
 }
-.page-hero h1 { color: #fff; font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 0.75rem; }
-.page-hero p  { color: rgba(255,255,255,.65); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.page-hero h1 { color: #fff; font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 0.75rem; line-height: 1.2; }
+.page-hero p  { color: rgba(255,255,255,.65); font-size: 1.05rem; max-width: 520px; }
 .page-eyebrow {
   display: inline-block;
   font-size: 0.78rem;
@@ -692,6 +704,13 @@ button { font-family: var(--font); cursor: pointer; }
   text-transform: uppercase;
   color: var(--clr-primary);
   margin-bottom: 0.75rem;
+}
+.page-hero-img img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
 /* Hinnasto */
@@ -852,7 +871,9 @@ button { font-family: var(--font); cursor: pointer; }
 
 /* Responsive alasivut */
 @media (max-width: 768px) {
-  .booking-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .form-row     { grid-template-columns: 1fr; }
+  .booking-grid    { grid-template-columns: 1fr; }
+  .contact-grid    { grid-template-columns: 1fr; }
+  .form-row        { grid-template-columns: 1fr; }
+  .page-hero-inner { grid-template-columns: 1fr; }
+  .page-hero-img   { display: none; }
 }
