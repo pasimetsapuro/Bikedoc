@@ -6,6 +6,61 @@
   <title>Palvelut ja hinnasto – BikeDoc</title>
   <meta name="description" content="BikeDoc pyörähuollon palvelut ja hinnat. Perushuolto, renkaanvaihto, vaihteisto, jarrut ja sähköpyörän huolto. Selkeä hinnasto ilman piilokuluja." />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Palvelut / hinnasto -sivu -------------------------------- */
+    .huoltopaketit-osio { background: #f5f7fa; padding: 4.5rem 0; }
+    .hp-otsikko { text-align: center; margin-bottom: 2.5rem; }
+    .hp-eyebrow { display: block; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #e85d04; margin-bottom: .5rem; }
+    .hp-otsikko h2 { font-size: clamp(1.6rem,3vw,2.1rem); font-weight: 800; color: #1c2841; }
+    .hp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .hp-kortti { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,.08); padding: 2rem; display: flex; flex-direction: column; transition: transform .25s ease, box-shadow .25s ease; }
+    .hp-kortti:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,.13); }
+    .hp-kortti-ikon { width: 46px; height: 46px; background: #fff4ee; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: #e85d04; }
+    .hp-kortti h3 { font-size: 1.15rem; font-weight: 700; color: #1c2841; margin-bottom: 1rem; }
+    .hp-hinnat { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
+    .hp-hinnat li { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; font-size: .89rem; color: #555; padding: .4rem 0; border-bottom: 1px solid #f3f3f3; }
+    .hp-hinnat li:last-child { border-bottom: none; }
+    .hp-hinnat li span:last-child { font-weight: 700; color: #1c2841; white-space: nowrap; }
+    .hp-modal-btn { background: none; border: 2px solid #e85d04; color: #e85d04; border-radius: 8px; padding: .7rem 1.25rem; font-weight: 700; font-size: .9rem; font-family: inherit; cursor: pointer; transition: background .2s, color .2s; width: 100%; }
+    .hp-modal-btn:hover { background: #e85d04; color: #fff; }
+    .hp-lisapalvelut { margin-top: 2rem; background: #fff; border-radius: 12px; padding: 1.5rem 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .hp-lisapalvelut h3 { font-size: .95rem; font-weight: 700; color: #1c2841; margin-bottom: 1rem; }
+
+    .hintakategoria-osio { padding: 4rem 0; background: #fff; }
+    .hintakategoriat { display: flex; flex-direction: column; gap: 3.5rem; }
+    .hk-otsikkorivi { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 2px solid #f0f0f0; }
+    .hk-ikon { width: 44px; height: 44px; background: #fff4ee; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #e85d04; }
+    .hk-otsikko-teksti { font-size: 1.2rem; font-weight: 800; color: #1c2841; }
+    .hk-taulukko { width: 100%; border-collapse: collapse; }
+    .hk-taulukko tr { border-bottom: 1px solid #f5f5f5; }
+    .hk-taulukko td { padding: .65rem .25rem; font-size: .91rem; color: #3d3d3d; }
+    .hk-taulukko td:last-child { text-align: right; font-weight: 700; color: #1c2841; white-space: nowrap; padding-left: 1rem; }
+    .hk-extra { display: none; }
+    .hk-extra.auki { display: table-row-group; }
+    .hk-toggle-btn { background: none; border: 1.5px solid #dde2e8; border-radius: 8px; padding: .55rem 1.2rem; font-size: .84rem; font-weight: 600; color: #666; cursor: pointer; margin-top: 1rem; font-family: inherit; display: inline-flex; align-items: center; gap: .45rem; transition: border-color .2s, color .2s; }
+    .hk-toggle-btn:hover { border-color: #e85d04; color: #e85d04; }
+    .hk-toggle-btn svg { transition: transform .25s ease; }
+    .hk-toggle-btn.auki svg { transform: rotate(180deg); }
+    .hinnasto-huomio { background: #fff8f4; border-left: 3px solid #e85d04; padding: 1rem 1.5rem; border-radius: 0 8px 8px 0; font-size: .88rem; color: #555; margin-top: 3rem; line-height: 1.7; }
+
+    /* Modaalit */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem; }
+    .modal-overlay.auki { display: flex; }
+    .modal-box { background: #fff; border-radius: 16px; max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,.22); }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; background: #f5f5f5; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #666; transition: background .2s; }
+    .modal-close:hover { background: #eee; color: #1c2841; }
+    .modal-label { display: block; font-size: .73rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #e85d04; margin-bottom: .5rem; }
+    .modal-box h2 { font-size: 1.35rem; font-weight: 800; color: #1c2841; margin-bottom: .75rem; }
+    .modal-sopii { font-size: .88rem; font-style: italic; color: #777; margin-bottom: 1.25rem; line-height: 1.6; border-left: 2px solid #e85d04; padding-left: .75rem; }
+    .modal-box > p { font-size: .93rem; color: #555; line-height: 1.75; margin-bottom: .75rem; }
+    .modal-lista-otsikko { font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #999; margin: 1.25rem 0 .75rem; }
+    .modal-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .6rem; }
+    .modal-lista li { display: flex; align-items: flex-start; gap: .6rem; font-size: .91rem; color: #333; }
+    .modal-lista li svg { flex-shrink: 0; color: #e85d04; margin-top: 2px; }
+
+    @media (max-width: 860px) { .hp-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .modal-box { padding: 1.75rem 1.25rem; } }
+  </style>
 </head>
 <body>
 
@@ -63,103 +118,234 @@
     </div>
   </section>
 
-  <!-- Perushuolto & erikoispalvelut -->
-  <section class="section" style="background: var(--clr-light);">
+  <!-- ======================================================
+       Huoltopaketit – 3 korttia modaaleilla
+       ====================================================== -->
+  <section class="huoltopaketit-osio">
     <div class="container">
 
-      <div class="section-head center">
-        <h2>Huoltopalvelut</h2>
-        <p>Huollamme kaiken tyyppiset pyörät – kaupunkipyörät, maastopyörät ja sähköpyörät</p>
+      <div class="hp-otsikko">
+        <span class="hp-eyebrow">HUOLTOPAKETIT</span>
+        <h2>Valitse sopiva huoltopaketti</h2>
       </div>
 
-      <div class="price-grid">
+      <div class="hp-grid">
 
-        <div class="price-card">
-          <h3>🔧 Perushuolto</h3>
-          <div class="price-tag">alkaen 59 €</div>
-          <p>Kattava tarkistus ja säätö kaikille pyörätyypeille.</p>
-          <ul>
-            <li>Jarrujen säätö ja tarkistus</li>
-            <li>Vaihteiston säätö</li>
-            <li>Ketjun puhdistus ja voidelu</li>
-            <li>Renkaiden ja pinnojen tarkistus</li>
-            <li>Ohjauksen ja istuimen tarkistus</li>
-            <li>Yleinen turvallisuustarkastus</li>
+        <!-- Ensihuolto -->
+        <div class="hp-kortti">
+          <div class="hp-kortti-ikon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Ensihuolto</h3>
+          <ul class="hp-hinnat">
+            <li><span>Yksi- ja napavaihteiset</span><span>60 €</span></li>
+            <li><span>Ketjuvaihteiset</span><span>70 €</span></li>
+            <li><span>Sähköpyörät</span><span>80 €</span></li>
+            <li><span>Renkaanvaihto huollon yhteydessä</span><span>5 € / kpl</span></li>
           </ul>
+          <button class="hp-modal-btn" onclick="avaaModal('ensihuolto')">Lue lisää</button>
         </div>
 
-        <div class="price-card">
-          <h3>🏔️ Täyshuolto</h3>
-          <div class="price-tag">alkaen 120 €</div>
-          <p>Syvällinen huolto vaativaan käyttöön.</p>
-          <ul>
-            <li>Kaikki perushuollon toimenpiteet</li>
-            <li>Keskiön purkaminen ja rasvaUS</li>
-            <li>Navan purkaminen ja rasvaus</li>
-            <li>Ketjun mittaus ja tarvittaessa vaihto</li>
-            <li>Kaikki vaijereille tarkistus</li>
-            <li>Pyörän pesu ja viimeistely</li>
+        <!-- Kausihuolto -->
+        <div class="hp-kortti">
+          <div class="hp-kortti-ikon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>Kausihuolto</h3>
+          <ul class="hp-hinnat">
+            <li><span>Yksi- ja napavaihteiset</span><span>90 €</span></li>
+            <li><span>Ketjuvaihteiset</span><span>110 €</span></li>
+            <li><span>Sähköpyörät</span><span>130 €</span></li>
+            <li><span>Renkaanvaihto huollon yhteydessä</span><span>5 € / kpl</span></li>
           </ul>
+          <button class="hp-modal-btn" onclick="avaaModal('kausihuolto')">Lue lisää</button>
         </div>
 
-        <div class="price-card">
-          <h3>🛞 Renkaanvaihto</h3>
-          <div class="price-tag">alkaen 15 €</div>
-          <p>Nopea renkaanvaihto kaikille pyörätyypeille.</p>
-          <ul>
-            <li>Sisärenkaan vaihto 15 €</li>
-            <li>Ulkorenkaan vaihto 20 €</li>
-            <li>Tubeless-asennus 35 €/rengas</li>
-            <li>Sealant-täyttö 10 €</li>
-            <li>Renkaan paikkaus 10 €</li>
+        <!-- Täyshuolto -->
+        <div class="hp-kortti">
+          <div class="hp-kortti-ikon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M16.24 7.76a6 6 0 0 1 0 8.49M4.93 19.07a10 10 0 0 1 0-14.14M7.76 16.24a6 6 0 0 1 0-8.49"/>
+            </svg>
+          </div>
+          <h3>Täyshuolto</h3>
+          <ul class="hp-hinnat">
+            <li><span>Yksi- ja napavaihteiset</span><span>185 €</span></li>
+            <li><span>Ketjuvaihteiset</span><span>195 €</span></li>
+            <li><span>Sähköpyörät</span><span>205 €</span></li>
           </ul>
+          <button class="hp-modal-btn" onclick="avaaModal('tayshuolto')">Lue lisää</button>
         </div>
 
-        <div class="price-card">
-          <h3>⚙️ Vaihteisto &amp; jarrut</h3>
-          <div class="price-tag">alkaen 25 €</div>
-          <p>Tarkat säädöt vaihteistolle ja jarruille.</p>
-          <ul>
-            <li>Vaihteiston säätö 25 €</li>
-            <li>Jarrujen säätö 25 €</li>
-            <li>Vaijerin vaihto 15 € / kpl</li>
-            <li>Hydraulijarrujen huolto 45 €</li>
-            <li>Jarrupalojen vaihto 20 €</li>
-          </ul>
+      </div><!-- /hp-grid -->
+
+      <!-- Lisäpalvelut -->
+      <div class="hp-lisapalvelut">
+        <h3>Lisäpalvelut</h3>
+        <table class="hk-taulukko">
+          <tr><td>Tehopuhdistus (erityisen likainen pyörä)</td><td>25 €</td></tr>
+          <tr><td>Shimano / Bosch päivitys, alustus tai PIN-nollaus</td><td>20 €</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       Muut hinnastokategoriat
+       ====================================================== -->
+  <section class="hintakategoria-osio">
+    <div class="container">
+      <div class="hintakategoriat">
+
+        <!-- 2. Vaihteisto ja jarrut -->
+        <div class="hk-kategoria">
+          <div class="hk-otsikkorivi">
+            <div class="hk-ikon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+            </div>
+            <h2 class="hk-otsikko-teksti">Vaihteisto ja jarrut</h2>
+          </div>
+          <table class="hk-taulukko">
+            <tbody>
+              <tr><td>Vaihteiden säätö</td><td>20 €</td></tr>
+              <tr><td>Vaihteiden säätö + ketjun puhdistus</td><td>25 €</td></tr>
+              <tr><td>Ketjun vaihto</td><td>15 €</td></tr>
+              <tr><td>Rataspakka + ketju vaihto</td><td>25 €</td></tr>
+              <tr><td>Jarrupalojen vaihto</td><td>14 € / puoli</td></tr>
+              <tr><td>Jarrun säätö</td><td>12 €</td></tr>
+              <tr><td>Jarruvaijerin vaihto</td><td>20–24 €</td></tr>
+              <tr><td>Levyjarrujen ilmaus</td><td>25–35 € / puoli</td></tr>
+            </tbody>
+            <tbody class="hk-extra" id="extra-vaihteisto">
+              <tr><td>Vaihtajan asennus / vaihto</td><td>29 €</td></tr>
+              <tr><td>Etu- / takavaihtajan vaihto</td><td>25–30 €</td></tr>
+              <tr><td>Vaihdevaijerin vaihto</td><td>19–25 €</td></tr>
+              <tr><td>Vaihdevivun asennus</td><td>24–35 €</td></tr>
+              <tr><td>Vaihtajan korvakkeen oikaisu</td><td>15–20 €</td></tr>
+              <tr><td>Rissapyörien vaihto</td><td>10 €</td></tr>
+              <tr><td>Eturattaiden vaihto</td><td>alkaen 30 €</td></tr>
+              <tr><td>Jarrulevyn vaihto</td><td>15–18 €</td></tr>
+              <tr><td>Levyjarrujen asennus</td><td>35–40 € / puoli</td></tr>
+              <tr><td>Hydraulisten jarrujen työt</td><td>30–40 € / osa</td></tr>
+            </tbody>
+          </table>
+          <button class="hk-toggle-btn" onclick="toggleExtra('extra-vaihteisto', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span class="btn-teksti">Näytä lisää töitä</span>
+          </button>
         </div>
 
-        <div class="price-card">
-          <h3>⚡ Sähköpyörän huolto</h3>
-          <div class="price-tag">alkaen 79 €</div>
-          <p>Erikoisosaamista sähköpyörien huoltoon.</p>
-          <ul>
-            <li>Sähköpyörän perushuolto 79 €</li>
-            <li>Akun kapasiteettitesti 20 €</li>
-            <li>Akun vaihto (sis. akku) 150 €+</li>
-            <li>Ohjelmistopäivitys 25 €</li>
-            <li>Moottorin diagnostiikka 35 €</li>
-          </ul>
+        <!-- 3. Renkaat, kiekot ja navat -->
+        <div class="hk-kategoria">
+          <div class="hk-otsikkorivi">
+            <div class="hk-ikon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="3"/>
+                <line x1="12" y1="2" x2="12" y2="9"/>
+                <line x1="12" y1="15" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="9" y2="12"/>
+                <line x1="15" y1="12" x2="22" y2="12"/>
+              </svg>
+            </div>
+            <h2 class="hk-otsikko-teksti">Renkaat, kiekot ja navat</h2>
+          </div>
+          <table class="hk-taulukko">
+            <tbody>
+              <tr><td>Renkaan vaihto</td><td>15 € / rengas</td></tr>
+              <tr><td>Renkaanvaihto irtokiekkoon</td><td>10–12 €</td></tr>
+              <tr><td>Tubeless-asennus (sis. litkun)</td><td>30–35 €</td></tr>
+              <tr><td>Vanteen rihtaus</td><td>25–35 €</td></tr>
+              <tr><td>Pinnan vaihto</td><td>14 € (huollon yhteydessä)</td></tr>
+            </tbody>
+            <tbody class="hk-extra" id="extra-renkaat">
+              <tr><td>Tubeless-teippaus</td><td>40 €</td></tr>
+              <tr><td>Tuubirenkaan vaihto</td><td>40 €</td></tr>
+              <tr><td>Sähköpotkulaudan renkaan vaihto</td><td>alkaen 25 €</td></tr>
+              <tr><td>Irtokiekon rihtaus</td><td>30 €</td></tr>
+              <tr><td>Kiekon kasaus</td><td>80–90 €</td></tr>
+              <tr><td>Etunavan huolto</td><td>20–29 €</td></tr>
+              <tr><td>Takanavan huolto</td><td>35–50 €</td></tr>
+              <tr><td>Nexus / Alfine öljynvaihto</td><td>49 €</td></tr>
+              <tr><td>Vapaarattaan vaihto</td><td>25–35 €</td></tr>
+            </tbody>
+          </table>
+          <button class="hk-toggle-btn" onclick="toggleExtra('extra-renkaat', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span class="btn-teksti">Näytä lisää töitä</span>
+          </button>
         </div>
 
-        <div class="price-card">
-          <h3>🔩 Pikahuolto</h5>
-          <div class="price-tag">alkaen 20 €</div>
-          <p>Nopea korjaus – usein saman päivän aikana.</p>
-          <ul>
-            <li>Ketjun vaihto 20 €</li>
-            <li>Ohjaustangon säätö 15 €</li>
-            <li>Istuimen korkeuden säätö 10 €</li>
-            <li>Valojen asennus 15 €</li>
-            <li>Lisävarusteiden asennus 15–40 €</li>
-          </ul>
+        <!-- 4. Muut huollot ja asennukset -->
+        <div class="hk-kategoria">
+          <div class="hk-otsikkorivi">
+            <div class="hk-ikon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h2 class="hk-otsikko-teksti">Muut huollot ja asennukset</h2>
+          </div>
+          <table class="hk-taulukko">
+            <tbody>
+              <tr><td>Polkimien vaihto</td><td>8–10 €</td></tr>
+              <tr><td>Kampisarjan vaihto</td><td>22–30 €</td></tr>
+              <tr><td>Keskiön vaihto</td><td>30–40 €</td></tr>
+              <tr><td>Ohjainlaakerin säätö</td><td>10 €</td></tr>
+              <tr><td>Ohjainlaakerin vaihto</td><td>40 €</td></tr>
+              <tr><td>Etuhaarukan vaihto</td><td>35–55 €</td></tr>
+              <tr><td>Pyörän kasaus</td><td>alkaen 70 €</td></tr>
+            </tbody>
+            <tbody class="hk-extra" id="extra-muut">
+              <tr><td>Tankonauhan vaihto</td><td>20–30 €</td></tr>
+              <tr><td>Kädensijojen vaihto</td><td>5–15 €</td></tr>
+              <tr><td>Satulan / satulaputken vaihto</td><td>15 €</td></tr>
+              <tr><td>Lokasuojien asennus</td><td>15–30 €</td></tr>
+              <tr><td>Tavaratelineen asennus</td><td>16–20 €</td></tr>
+              <tr><td>Etutarakan asennus</td><td>30–40 €</td></tr>
+              <tr><td>Etukorin asennus</td><td>25–30 €</td></tr>
+              <tr><td>Seisontajalan asennus</td><td>8–10 €</td></tr>
+              <tr><td>Valojen asennus</td><td>20–45 €</td></tr>
+              <tr><td>Sähköpyörän ohjelmointi / diagnostiikka</td><td>20–25 €</td></tr>
+              <tr><td>Kirjallinen korjausarvio</td><td>70 €</td></tr>
+            </tbody>
+          </table>
+          <button class="hk-toggle-btn" onclick="toggleExtra('extra-muut', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span class="btn-teksti">Näytä lisää töitä</span>
+          </button>
         </div>
 
-      </div><!-- /price-grid -->
+      </div><!-- /hintakategoriat -->
 
-      <p style="text-align:center;margin-top:2rem;color:#555;font-size:0.9rem;">
-        Hinnat sisältävät työn. Varaosat veloitetaan erikseen hintalistamme mukaan.<br>
-        Hinta-arvio aina ennen työn aloitusta – ilman yllätyksiä.
-      </p>
+      <div class="hinnasto-huomio">
+        <strong>Huomioitavaa:</strong> Varaosat veloitetaan erikseen. Lisätyöt sovitaan aina
+        asiakkaan kanssa. Erikoispyörät ja vaativammat työt hinnoitellaan tapauskohtaisesti.
+      </div>
 
     </div>
   </section>
@@ -267,6 +453,111 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======================================================
+       Modaalit – Ensihuolto, Kausihuolto, Täyshuolto
+       ====================================================== -->
+
+  <!-- Ensihuolto -->
+  <div class="modal-overlay" id="modal-ensihuolto" role="dialog" aria-modal="true" aria-labelledby="modal-ensihuolto-otsikko">
+    <div class="modal-box">
+      <button class="modal-close" onclick="suljeModal('ensihuolto')" aria-label="Sulje">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-label">HUOLTOPAKETTI</span>
+      <h2 id="modal-ensihuolto-otsikko">Ensihuolto</h2>
+      <p class="modal-sopii">Ensihuolto on tarkoitettu uusille pyörille ensimmäisten sadan ajokilometrin jälkeen, kun vaijerit, pinnat ja laakerit ovat asettuneet paikoilleen. Huolto varmistaa, että pyörä toimii oikein heti alusta alkaen eikä pieniä säätötarpeita jää huomaamatta.</p>
+      <p class="modal-lista-otsikko">Sisältää</p>
+      <ul class="modal-lista">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaihteiden ja jarrujen tarkastus ja säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pinnojen kireyden tarkistus</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Napojen ja ohjainlaakerin välysten tarkistus</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Ketjun tarkastus ja voitelu tarvittaessa</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Kaikkien kiinnitysten kiristys</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pyörän perustarkastus ja koeajo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Kausihuolto -->
+  <div class="modal-overlay" id="modal-kausihuolto" role="dialog" aria-modal="true" aria-labelledby="modal-kausihuolto-otsikko">
+    <div class="modal-box">
+      <button class="modal-close" onclick="suljeModal('kausihuolto')" aria-label="Sulje">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-label">HUOLTOPAKETTI</span>
+      <h2 id="modal-kausihuolto-otsikko">Kausihuolto</h2>
+      <p class="modal-sopii">Kausihuolto on pyörän vuosittainen perushuolto aktiiviseen käyttöön. Se sopii erityisesti keväällä tai syksyllä tehtäväksi, jotta pyörä pysyy turvallisena ja toimintavarmana koko ajokauden ajan.</p>
+      <p class="modal-lista-otsikko">Sisältää</p>
+      <ul class="modal-lista">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaihteiden ja jarrujen puhdistus sekä säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vanteiden oikaisu ja pinnojen tarkistus</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Liikkuvien osien voitelu</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Laakerien tarkistus ja säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Renkaiden kuntoarvio ja ilmanpaineiden säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Kuluvien osien vaihtotyöt (varaosat erikseen)</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Runko, voimansiirto ja keskeiset osat käydään läpi</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pyörän toiminnan tarkistus ja koeajo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Täyshuolto -->
+  <div class="modal-overlay" id="modal-tayshuolto" role="dialog" aria-modal="true" aria-labelledby="modal-tayshuolto-otsikko">
+    <div class="modal-box">
+      <button class="modal-close" onclick="suljeModal('tayshuolto')" aria-label="Sulje">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-label">HUOLTOPAKETTI</span>
+      <h2 id="modal-tayshuolto-otsikko">Täyshuolto</h2>
+      <p class="modal-sopii">Täyshuolto on perusteellinen huolto paljon ajetuille tai pitkään huoltamattomille pyörille. Se suositellaan tehtäväksi noin 2–3 vuoden välein tai, kun pyörän toiminnassa on selvästi heikentymistä.</p>
+      <p class="modal-lista-otsikko">Sisältää</p>
+      <ul class="modal-lista">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pyörän perusteellinen pesu ja puhdistus</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vaihteiston ja jarrujen huolto sekä tarkka säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Voimansiirron puhdistus ja voitelu</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Kiekkojen rihtaus tarkkuuspenkissä</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Napojen ja laakereiden tarkistus ja huolto</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Ohjainlaakerin puhdistus ja säätö</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Kuluvien osien vaihtotyöt (varaosat erikseen)</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pyörän täydellinen läpikäynti ja koeajo</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    /* ---- Hinnasto: modaalit ja lisää-napit ---- */
+    function avaaModal(id) {
+      document.getElementById('modal-' + id).classList.add('auki');
+      document.body.style.overflow = 'hidden';
+    }
+    function suljeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('auki');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          overlay.classList.remove('auki');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.auki').forEach(function(m) {
+          m.classList.remove('auki');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+    function toggleExtra(id, btn) {
+      var tbody = document.getElementById(id);
+      var isOpen = tbody.classList.toggle('auki');
+      btn.classList.toggle('auki', isOpen);
+      btn.querySelector('.btn-teksti').textContent = isOpen ? 'Piilota lisätöitä' : 'Näytä lisää töitä';
+    }
+  </script>
 
   <script>
     (function () {

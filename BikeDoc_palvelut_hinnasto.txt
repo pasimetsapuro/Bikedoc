@@ -1,0 +1,157 @@
+BikeDoc – palvelut ja hinnasto
+
+1) Huoltopaketit
+Tärkeimmät
+Ensihuolto
+
+Yksi- ja napavaihteiset: 60 €
+Ketjuvaihteiset: 70 €
+Sähköpyörät: 80 €
+Renkaanvaihto huollon yhteydessä: 5 € / kpl
+
+Kausihuolto
+
+Yksi- ja napavaihteiset: 90 €
+Ketjuvaihteiset: 110 €
+Sähköpyörät: 130 €
+Renkaanvaihto huollon yhteydessä: 5 € / kpl
+
+Täyshuolto
+
+Yksi- ja napavaihteiset: 185 €
+Ketjuvaihteiset: 195 €
+Sähköpyörät: 205 €
+
+
+Lisäpalvelut
+
+Tehopuhdistus (erityisen likainen pyörä): 25 €
+Shimano / Bosch päivitys, alustus tai PIN-nollaus: 20 €
+
+
+2) Vaihteisto ja jarrut
+Tärkeimmät
+
+Vaihteiden säätö: 20 €
+Vaihteiden säätö + ketjun puhdistus: 25 €
+Ketjun vaihto: 15 €
+Rataspakka + ketju vaihto: 25 €
+Jarrupalojen vaihto: 14 € / puoli
+Jarrun säätö: 12 €
+Jarruvaijerin vaihto: 20–24 €
+Levyjarrujen ilmaus: 25–35 € / puoli
+
+
+Lisätyöt
+
+Vaihtajan asennus / vaihto: 29 €
+Etu- / takavaihtajan vaihto: 25–30 €
+Vaihdevaijerin vaihto: 19–25 €
+Vaihdevivun asennus: 24–35 €
+Vaihtajan korvakkeen oikaisu: 15–20 €
+Rissapyörien vaihto: 10 €
+Eturattaiden vaihto: 30 € alkaen
+Jarrulevyn vaihto: 15–18 €
+Levyjarrujen asennus: 35–40 € / puoli
+Hydraulisten jarrujen työt: 30–40 € / osa
+
+
+3) Renkaat, kiekot ja navat
+Tärkeimmät
+
+Renkaan vaihto: 15 € / rengas
+Renkaanvaihto irtokiekkoon: 10–12 €
+Tubeless-asennus (sis. litkun): 30–35 €
+Vanteen rihtaus: 25–35 €
+Pinnan vaihto: 14 € (huollon yhteydessä)
+
+
+Lisätyöt
+
+Tubeless-teippaus: 40 €
+Tuubirenkaan vaihto: 40 €
+Sähköpotkulaudan renkaan vaihto: 25 € alkaen
+Irtokiekon rihtaus: 30 €
+Kiekon kasaus: 80–90 €
+Etunavan huolto: 20–29 €
+Takanavan huolto: 35–50 €
+Nexus / Alfine öljynvaihto: 49 €
+Vapaarattaan vaihto: 25–35 €
+
+
+4) Muut huollot ja asennukset
+Tärkeimmät
+
+Polkimien vaihto: 8–10 €
+Kampisarjan vaihto: 22–30 €
+Keskiön vaihto: 30–40 €
+Ohjainlaakerin säätö: 10 €
+Ohjainlaakerin vaihto: 40 €
+Etuhaarukan vaihto: 35–55 €
+Pyörän kasaus: 70 € alkaen
+
+
+Lisätyöt
+
+Tankonauhan vaihto: 20–30 €
+Kädensijojen vaihto: 5–15 €
+Satulan / satulaputken vaihto: 15 €
+Lokasuojien asennus: 15–30 €
+Tavaratelineen asennus: 16–20 €
+Etutarakan asennus: 30–40 €
+Etukorin asennus: 25–30 €
+Seisontajalan asennus: 8–10 €
+Valojen asennus: 20–45 €
+Sähköpyörän ohjelmointi / diagnostiikka: 20–25 €
+Kirjallinen korjausarvio: 70 €
+
+
+Huomioitavaa
+
+Varaosat veloitetaan erikseen
+Lisätyöt sovitaan aina asiakkaan kanssa
+Erikoispyörät ja vaativammat työt hinnoitellaan tapauskohtaisesti
+
+
+
+🔧 Ensihuolto
+Mihin sopii:
+Ensihuolto on tarkoitettu uusille pyörille ensimmäisten sadan ajokilometrin jälkeen, kun vaijerit, pinnat ja laakerit ovat asettuneet paikoilleen. Huolto varmistaa, että pyörä toimii oikein heti alusta alkaen eikä pieniä säätötarpeita jää huomaamatta.
+Sisältää:
+
+Vaihteiden ja jarrujen tarkastus ja säätö
+Pinnojen kireyden tarkistus
+Napojen ja ohjainlaakerin välysten tarkistus
+Ketjun tarkastus ja voitelu tarvittaessa
+Kaikkien kiinnitysten kiristys
+Pyörän perustarkastus ja koeajo
+
+
+🔧 Kausihuolto
+Mihin sopii:
+Kausihuolto on pyörän vuosittainen perushuolto aktiiviseen käyttöön. Se sopii erityisesti keväällä tai syksyllä tehtäväksi, jotta pyörä pysyy turvallisena ja toimintavarmana koko ajokauden ajan.
+Sisältää:
+
+Vaihteiden ja jarrujen puhdistus sekä säätö
+Vanteiden oikaisu ja pinnojen tarkistus
+Liikkuvien osien voitelu
+Laakerien tarkistus ja säätö
+Renkaiden kuntoarvio ja ilmanpaineiden säätö
+Kuluvien osien vaihtotyöt (varaosat erikseen)
+Runko, voimansiirto ja keskeiset osat käydään läpi
+Pyörän toiminnan tarkistus ja koeajo
+
+
+🔧 Täyshuolto
+Mihin sopii:
+Täyshuolto on perusteellinen huolto paljon ajetuille tai pitkään huoltamattomille pyörille. Se suositellaan tehtäväksi noin 2–3 vuoden välein tai, kun pyörän toiminnassa on selvästi heikentymistä.
+Sisältää:
+
+Pyörän perusteellinen pesu ja puhdistus
+Vaihteiston ja jarrujen huolto sekä tarkka säätö
+Voimansiirron puhdistus ja voitelu
+Kiekkojen rihtaus tarkkuuspenkissä
+Napojen ja laakereiden tarkistus ja huolto
+Ohjainlaakerin puhdistus ja säätö
+Kuluvien osien vaihtotyöt (varaosat erikseen)
+Pyörän täydellinen läpikäynti ja koeajo
