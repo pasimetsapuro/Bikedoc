@@ -104,80 +104,46 @@
           </div>
         </div>
 
-        <!-- Lomake oikealla -->
-        <div class="booking-form-card">
-          <h3>Varauslomake</h3>
-          <form action="#" method="post" novalidate>
+        <!-- Varauskalenteri oikealla -->
+        <div class="booking-form-card booking-setmore">
+          <h3>Varaa aika verkossa</h3>
+          <p style="font-size:0.93rem;color:#555;margin-bottom:2rem;">
+            Klikkaa alla olevaa painiketta – pääset suoraan varauskalenteriin,
+            josta voit valita sopivan ajan ja palvelun.
+          </p>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">Etunimi *</label>
-                <input type="text" id="fname" name="fname" required autocomplete="given-name" placeholder="Matti" />
-              </div>
-              <div class="form-group">
-                <label for="lname">Sukunimi *</label>
-                <input type="text" id="lname" name="lname" required autocomplete="family-name" placeholder="Meikäläinen" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Puhelinnumero *</label>
-                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+358 40 123 4567" />
-              </div>
-              <div class="form-group">
-                <label for="email">Sähköposti</label>
-                <input type="email" id="email" name="email" autocomplete="email" placeholder="matti@esimerkki.fi" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="bike-type">Pyörän tyyppi *</label>
-              <select id="bike-type" name="bike-type" required>
-                <option value="" disabled selected>Valitse pyörän tyyppi</option>
-                <option value="maantie">Maantiepyörä</option>
-                <option value="maasto">Maastopyörä</option>
-                <option value="kaupunki">Kaupunkipyörä</option>
-                <option value="gravel">Gravel-pyörä</option>
-                <option value="sahko">Sähköpyörä</option>
-                <option value="hybri">Hybridipyörä</option>
-                <option value="muu">Muu</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="service">Huoltotyyppi *</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Valitse huoltotyyppi</option>
-                <option value="perus">Perushuolto (alkaen 59 €)</option>
-                <option value="taysi">Täyshuolto (alkaen 120 €)</option>
-                <option value="renkaat">Renkaanvaihto / paikkaus</option>
-                <option value="vaihteisto">Vaihteiston säätö</option>
-                <option value="jarrut">Jarrujen säätö / huolto</option>
-                <option value="sahko">Sähköpyörän huolto</option>
-                <option value="muu">Muu / en tiedä vielä</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="preferred-date">Toivottu ajankohta</label>
-              <input type="date" id="preferred-date" name="preferred-date" />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Lisätietoja viasta tai toiveista</label>
-              <textarea id="message" name="message" placeholder="Kuvaile ongelmaa tai kerro toiveistasi..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-              Lähetä varaus
+          <div style="text-align:center;">
+            <script
+              id="anywhere_book_now_script"
+              src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js">
+            </script>
+            <button
+              id="Anywhere_button_iframe"
+              class="anywhere-book-now-button"
+              style="
+                background-color: #e85d04;
+                color: #fff;
+                border: none;
+                padding: 14px 32px;
+                font-size: 1rem;
+                font-weight: 700;
+                border-radius: 8px;
+                cursor: pointer;
+                letter-spacing: 0.02em;
+                transition: background-color 0.2s ease;
+              "
+              data-booking-url="https://noljakanpyoumlraumltallioy.setmore.com"
+              data-new-tab="false"
+              onmouseover="this.style.backgroundColor='#c44b00'"
+              onmouseout="this.style.backgroundColor='#e85d04'"
+            >
+              Varaa huoltoaika
             </button>
+          </div>
 
-            <p style="font-size:0.8rem;color:#888;text-align:center;margin-top:0.75rem;">
-              * Pakollinen kenttä. Otamme yhteyttä 1–2 tunnin sisällä arkisin.
-            </p>
-
-          </form>
+          <p style="font-size:0.8rem;color:#aaa;text-align:center;margin-top:1.5rem;">
+            Sinut ohjataan BikeDocin varauspalveluun.
+          </p>
         </div>
 
       </div>
