@@ -6,6 +6,116 @@
   <title>BikeDoc – Pyörähuolto &amp; pyöräkauppa</title>
   <meta name="description" content="BikeDoc tarjoaa ammattitaitoisen pyörähuollon, uusien ja käytettyjen pyörien myynnin sekä kaiken tarvittavan pyöräilyyn. Helsinki." />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Moderni palvelukortit-osio ----------------------------- */
+    .palvelut-osio {
+      padding: 5rem 0;
+      background: var(--clr-light, #f5f7fa);
+    }
+    .palvelut-eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E85D04;
+      margin-bottom: 0.6rem;
+    }
+    .palvelut-otsikko {
+      text-align: center;
+      font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+      font-weight: 800;
+      color: var(--clr-dark, #1c2841);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+    .palvelut-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .palvelut-kortti {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      overflow: visible;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .palvelut-kortti:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 48px rgba(0,0,0,.16);
+    }
+    .palvelut-kuva-wrap {
+      position: relative;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .palvelut-kuva {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .palvelut-ikoni-wrap {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      background: #E85D04;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(232,93,4,.45);
+      z-index: 2;
+    }
+    .palvelut-teksti {
+      padding: 2.2rem 1.5rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.4rem;
+    }
+    .palvelut-teksti h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--clr-dark, #1c2841);
+      margin-top: 0.3rem;
+    }
+    .palvelut-teksti p {
+      font-size: 0.92rem;
+      color: var(--clr-muted, #6c757d);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .palvelut-linkki {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #E85D04;
+      margin-top: 0.75rem;
+      transition: gap 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+    }
+    .palvelut-linkki:hover {
+      gap: 0.45rem;
+      color: #c44b00;
+    }
+    @media (max-width: 1024px) {
+      .palvelut-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px) {
+      .palvelut-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -145,64 +255,100 @@
 
 
   <!-- ======================================================
-       3. PALVELUT – otsikko + 4 korttia
+       3. PALVELUT – moderni kuvakortti-osio
        ====================================================== -->
-  <section class="section services-section" aria-labelledby="services-heading">
+  <section class="palvelut-osio" aria-labelledby="palvelut-heading">
     <div class="container">
 
-      <div class="section-head center">
-        <h2 id="services-heading">Palvelumme</h2>
-        <p>Ammattitaitoinen pyörähuolto kaikille merkeille ja tyypeille</p>
-      </div>
+      <span class="palvelut-eyebrow">SUOSITUIMMAT PALVELUMME</span>
+      <h2 class="palvelut-otsikko" id="palvelut-heading">Kaikki huollot yhdestä paikasta</h2>
 
-      <div class="services-grid">
+      <div class="palvelut-grid">
 
-        <article class="srv-card">
-          <!-- Korvaa: <img src="images/srv-1.jpg" alt="Pyörän huolto" class="srv-img-real"> -->
-          <div class="srv-img" style="background:linear-gradient(135deg,#1c2841,#0f3460)"
-               aria-hidden="true">🔧</div>
-          <div class="srv-body">
-            <h3>Perushuolto</h3>
-            <p>Kattava perushuolto sisältää jarrujen säädön, vaihteiston säädön,
-               renkaiden tarkistuksen ja voitelun. Alkaen 59 €.</p>
-            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
+        <!-- Kortti 1: Pyörän kausihuolto -->
+        <article class="palvelut-kortti">
+          <div class="palvelut-kuva-wrap">
+            <img src="images/palvelu_kausihuolto.jpg" alt="Pyörän kausihuolto" class="palvelut-kuva">
+            <div class="palvelut-ikoni-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="palvelut-teksti">
+            <h3>Pyörän kausihuolto</h3>
+            <p>Kattava vuosittainen huolto, joka pitää pyöräsi huippukunnossa koko kauden.
+               Sisältää jarrujen, vaihteiston ja koko pyörän täystarkastuksen.</p>
+            <a href="palvelut.html" class="palvelut-linkki">Lue lisää →</a>
           </div>
         </article>
 
-        <article class="srv-card">
-          <div class="srv-img" style="background:linear-gradient(135deg,#16213e,#533483)"
-               aria-hidden="true">�</div>
-          <div class="srv-body">
-            <h3>Renkaanvaihto &amp; tuubaus</h3>
-            <p>Nopea renkaanvaihto, sisä- tai ulkorenkaan vaihto,
-               tubeless-asennus sekä paikkaus. Alkaen 15 €.</p>
-            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
+        <!-- Kortti 2: Sähköpyörän huolto -->
+        <article class="palvelut-kortti">
+          <div class="palvelut-kuva-wrap">
+            <img src="images/palvelu_sahkopyoran_huolto.jpg" alt="Sähköpyörän huolto" class="palvelut-kuva">
+            <div class="palvelut-ikoni-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
           </div>
-        </article>
-
-        <article class="srv-card">
-          <div class="srv-img" style="background:linear-gradient(135deg,#11998e,#38ef7d)"
-               aria-hidden="true">⚙️</div>
-          <div class="srv-body">
-            <h3>Vaihteisto &amp; jarrut</h3>
-            <p>Vaijerin vaihto, siirtäjän säätö, hydraulijarrujen huolto
-               ja kalibrointi. Alkaen 25 €.</p>
-            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
-          </div>
-        </article>
-
-        <article class="srv-card">
-          <div class="srv-img" style="background:linear-gradient(135deg,#e85d04,#c44b00)"
-               aria-hidden="true">⚡</div>
-          <div class="srv-body">
+          <div class="palvelut-teksti">
             <h3>Sähköpyörän huolto</h3>
-            <p>Akun testaus ja vaihto, moottorin huolto, ohjelmistopäivitys
-               sekä sähköjärjestelmän diagnostiikka.</p>
-            <a href="palvelut.html" class="srv-link">Näytä hinnasto →</a>
+            <p>Akun testaus ja vaihto, moottorin huolto, ohjelmistopäivitykset sekä
+               koko sähköjärjestelmän diagnostiikka ammattitaidolla.</p>
+            <a href="palvelut.html" class="palvelut-linkki">Lue lisää →</a>
           </div>
         </article>
 
-      </div><!-- /services-grid -->
+        <!-- Kortti 3: Renkaanvaihto -->
+        <article class="palvelut-kortti">
+          <div class="palvelut-kuva-wrap">
+            <img src="images/palvelu_renkaanvaihto.jpg" alt="Renkaanvaihto" class="palvelut-kuva">
+            <div class="palvelut-ikoni-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="3"/>
+                <line x1="12" y1="2" x2="12" y2="9"/>
+                <line x1="12" y1="15" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="9" y2="12"/>
+                <line x1="15" y1="12" x2="22" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="palvelut-teksti">
+            <h3>Renkaanvaihto</h3>
+            <p>Nopea renkaanvaihto, sisä- tai ulkorenkaan vaihto, tubeless-asennus sekä
+               paikkaus. Pyöräsi takaisin ajokuntoon hetkessä.</p>
+            <a href="palvelut.html" class="palvelut-linkki">Lue lisää →</a>
+          </div>
+        </article>
+
+        <!-- Kortti 4: Pyörien myyntipalvelu -->
+        <article class="palvelut-kortti">
+          <div class="palvelut-kuva-wrap">
+            <img src="images/palvelu_pyorien_myyntipalvelu.jpg" alt="Pyörien myyntipalvelu" class="palvelut-kuva">
+            <div class="palvelut-ikoni-wrap" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="palvelut-teksti">
+            <h3>Pyörien myyntipalvelu</h3>
+            <p>Laaja valikoima uusia ja käytettyjä pyöriä. Autamme löytämään juuri oikean
+               pyörän tarpeidesi ja budjettisi mukaan.</p>
+            <a href="palvelut.html" class="palvelut-linkki">Lue lisää →</a>
+          </div>
+        </article>
+
+      </div><!-- /palvelut-grid -->
     </div>
   </section><!-- /palvelut -->
 
