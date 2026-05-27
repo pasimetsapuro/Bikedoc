@@ -250,6 +250,211 @@
         gap: 2.5rem;
       }
     }
+
+    /* ---- Etusivun loppuosa ----------------------------------- */
+    .community-end {
+      background: #0f0f0f;
+      color: #f4f4f4;
+      padding: 5rem 0;
+    }
+    .community-panel + .community-panel {
+      margin-top: 3.5rem;
+      padding-top: 3.5rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .community-eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #E85D04;
+      margin-bottom: 0.65rem;
+    }
+    .community-panel h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.75rem;
+    }
+    .review-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 900px;
+    }
+    .review-card {
+      display: flex;
+      gap: 1rem;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,93,4,.34);
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+    }
+    .review-mark {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(232,93,4,.12);
+      color: #E85D04;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .review-content p {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,.86);
+      margin: 0 0 .85rem;
+    }
+    .review-content cite {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      color: rgba(255,255,255,.66);
+      font-size: 0.9rem;
+    }
+    .booking-panel {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+      border-radius: 22px;
+      border: 1px solid rgba(232,93,4,.18);
+      background: linear-gradient(180deg, rgba(232,93,4,.08), rgba(255,255,255,.02));
+      padding: 3rem 2rem;
+    }
+    .booking-panel p {
+      max-width: 760px;
+      margin: 0 auto 1.8rem;
+      color: rgba(255,255,255,.72);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .community-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      background: #E85D04;
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 24px rgba(232,93,4,.22);
+    }
+    .community-cta-btn:hover {
+      transform: translateY(-2px);
+      background: #c44b00;
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(232,93,4,.28);
+    }
+    .community-faq {
+      max-width: 920px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .community-faq-item {
+      background: #171717;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .community-faq-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(232,93,4,.28);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+    .community-faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.25rem;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+    }
+    .community-faq-question span:first-child {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .community-faq-icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #E85D04;
+      background: rgba(232,93,4,.12);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+    .community-faq-item.is-open .community-faq-icon {
+      transform: rotate(180deg);
+      background: rgba(232,93,4,.18);
+    }
+    .community-faq-answer {
+      padding: 0 1.25rem 1.2rem;
+    }
+    .community-faq-answer p {
+      color: rgba(255,255,255,.72);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .community-end {
+        padding: 4rem 0;
+      }
+      .community-panel + .community-panel {
+        margin-top: 2.5rem;
+        padding-top: 2.5rem;
+      }
+      .review-card {
+        padding: 1.2rem 1.1rem;
+      }
+      .booking-panel {
+        padding: 2.4rem 1.35rem;
+      }
+      .community-faq-question {
+        padding: 1.05rem 1rem;
+      }
+      .community-faq-answer {
+        padding: 0 1rem 1.05rem;
+      }
+    }
+
+    .hero-right {
+      align-self: end;
+      padding-bottom: 1.1rem;
+    }
+    .hero-badge-feat {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+    .hero-badge-feat .hf-icon-wrap {
+      margin-bottom: 0.1rem;
+    }
   </style>
 </head>
 <body>
@@ -291,7 +496,7 @@
       </nav>
 
       <!-- Puhelinnumero oikealla -->
-      <a href="tel:+358401234567" class="hdr-phone" aria-label="Soita meille">
+      <a href="tel:+358447770024" class="hdr-phone" aria-label="Soita meille">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
@@ -301,7 +506,7 @@
                    a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
                    c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        +358 40 123 4567
+        +358 447770024
       </a>
 
     </div>
@@ -332,7 +537,7 @@
           <a href="palvelut.html" class="btn btn-ghost">Palvelut &amp; hinnasto</a>
         </div>
 
-        <!-- 3 feature-korttia vierekkäin -->
+        <!-- 4 feature-korttia vierekkäin -->
         <div class="hero-features">
           <div class="hero-feat">
             <div class="hf-icon-wrap" aria-hidden="true">
@@ -362,22 +567,14 @@
             </div>
             <strong>Kilpailukykyinen hinnoittelu</strong>
           </div>
-        </div>
-      </div>
-
-      <!-- Oikea: kokemusnosto kuvan päällä -->
-      <div class="hero-right">
-
-        <!-- Kokemusnosto kuvan päällä oikeassa reunassa -->
-        <div class="hero-badge">
-          <div class="hero-badge-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-            </svg>
-          </div>
-          <div class="hero-badge-text">
+          <div class="hero-feat hero-badge-feat">
+            <div class="hf-icon-wrap" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
             <strong>Yli 10 vuotta kokemusta</strong>
             <span>kaiken tyyppisistä pyöristä</span>
           </div>
@@ -600,8 +797,6 @@
               Vahva osaaminen ja aito kiinnostus pyörätekniikkaan
             </li>
           </ul>
-
-          <a href="huoltovaraus.html" class="btn btn-primary">Varaa huoltoaika</a>
         </div>
 
       </div>
@@ -631,104 +826,171 @@
 
 
   <!-- ======================================================
-       7. KOLMEN LAATIKON OSIO
+       7. LOPPUOSA – asiakasarviot | varaus | UKK
        ====================================================== -->
-  <section class="section three-boxes" aria-label="Arvostelut, varaus ja UKK">
+  <section class="community-end" aria-labelledby="community-reviews-title">
     <div class="container">
-      <div class="boxes-grid">
 
-        <!-- Arvostelut -->
-        <div class="box box-reviews">
-          <h3>Mitä asiakkaamme sanovat?</h3>
-          <div class="reviews">
-            <div class="review">
-              <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>”Toi maastopyöräni perushuoltoon – hinta-arvio tuli heti ja
-                 pyörä oli valmis seuraavana päivänä. Huippupalvelu!”</p>
-              <cite>– Mikael K., Helsinki</cite>
+      <!-- 1. Asiakasarviot -->
+      <div class="community-panel community-reviews-panel">
+        <span class="community-eyebrow">ASIAKASARVIOT</span>
+        <h2 id="community-reviews-title">Mitä asiakkaamme sanovat?</h2>
+
+        <div class="review-stack">
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+              </svg>
             </div>
-            <div class="review">
-              <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>”Sähköpyörän akku vaihdettiin ja vaihteisto säädettiin.
-                 Ammattitaitoinen tiimi, suosittelen lämpöisesti!”</p>
-              <cite>– Sara L., Espoo</cite>
+            <div class="review-content">
+              <p>“Ajanvaraus onnistui helposti suoraan nettisivuilta ja kaikki toimi juuri niin kuin pitikin. Pyörä otettiin heti työn alle ja palvelu oli alusta loppuun todella avuliasta ja asiantuntevaa. Tänne on helppo tulla uudelleen.”</p>
+              <cite>— Joona K., Joensuu</cite>
             </div>
-            <div class="review">
-              <div class="stars" aria-label="5 tähteä">★★★★★</div>
-              <p>”Ostin käytetyn gravel-pyörän BikeDocilta. Laatu vastasi
-                 täysin kuvausta. Ehdottomasti paras kauppa!”</p>
-              <cite>– Juhani P., Tampere</cite>
+          </article>
+
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+              </svg>
+            </div>
+            <div class="review-content">
+              <p>“Ostin BikeDocilta työsuhdepyörän ja koko prosessi sujui todella vaivattomasti. Autettiin sopivan mallin valinnassa ja pyörä oli juuri oikean kokoinen. Hinta-laatusuhde oli erinomainen ja kokonaisuus jäi todella positiiviseksi.”</p>
+              <cite>— Virpi L., Ylämylly</cite>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+              </svg>
+            </div>
+            <div class="review-content">
+              <p>“Tarvitsin nopean korjauksen ja pyörä saatiin kuntoon jo saman päivän aikana. Työ tehtiin huolellisesti ja samalla annettiin hyviä vinkkejä jatkoa varten. Asiantuntevaa ja sujuvaa palvelua.”</p>
+              <cite>— Juha S., Kontiolahti</cite>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 2. Huoltovaraus -->
+      <div class="community-panel booking-panel">
+        <span class="community-eyebrow">HUOLTOVARAUS</span>
+        <h2>Varaa huolto helposti</h2>
+        <p>Varaa aika muutamassa minuutissa ja anna pyöräsi meidän huoleksemme. Saat selkeän varauspolun ja voit siirtyä suoraan ajanvaraukseen silloin, kun se sinulle sopii.</p>
+        <a href="huoltovaraus.html" class="community-cta-btn">Siirry ajanvaraukseen</a>
+      </div>
+
+      <!-- 3. UKK -->
+      <div class="community-panel community-faq-panel">
+        <span class="community-eyebrow">UKK</span>
+        <h2>Usein kysytyt kysymykset</h2>
+
+        <div class="community-faq" role="list">
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Kuinka kauan pyörän huolto kestää?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Huollon kesto on yleensä noin 2–4 arkipäivää riippuen sen laajuudesta ja ajankohdan ruuhkatilanteesta. Pienemmät työt voidaan usein tehdä myös saman päivän aikana tai sovittaessa odottaessa.</p>
             </div>
           </div>
-        </div><!-- /arvostelut -->
 
-        <!-- Varaus CTA -->
-        <div class="box box-booking">
-          <div class="booking-inner">
-            <span class="booking-icon" aria-hidden="true">📅</span>
-            <h3>Varaa pyörän huolto</h3>
-            <p>Tuo pyöräsi ammattilaisten huoltoon.
-               Nopea ja edullinen palvelu kaikille pyörätyypeille.</p>
-          <a href="huoltovaraus.html" class="btn btn-white">Varaa aika nyt</a>
-            <p class="booking-note">Vapaat ajat usein jo samalle viikolle</p>
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Tarvitseeko huoltoon varata aika etukäteen?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Suosittelemme varaamaan ajan etukäteen, jotta huolto saadaan tehtyä mahdollisimman sujuvasti. Ajan voi varata helposti puhelimitse, WhatsAppilla tai verkkosivujen ajanvarauksen kautta.</p>
+            </div>
           </div>
-        </div><!-- /varaus -->
 
-        <!-- FAQ accordion -->
-        <div class="box box-faq">
-          <h3>Usein kysytyt kysymykset</h3>
-          <div class="faq" role="list">
-
-            <div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false">
-                <span>Onko sisältö ilmaista?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-a" hidden>
-                <p>Kyllä! Kaikki oppaat ja reitit ovat täysin ilmaisia –
-                   ei rekisteröitymistä, ei maksumuureja.</p>
-              </div>
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Huollatteko myös sähköpyöriä?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Kyllä. Huollamme sähköpyöriä ja käytössämme on diagnostiikka Shimano- ja Bosch-järjestelmille. Tarvittaessa voimme tehdä myös ohjelmistopäivityksiä ja tarkistuksia.</p>
             </div>
+          </div>
 
-            <div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false">
-                <span>Miten varaan huoltoajan?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-a" hidden>
-                <p>Käytä yhteydenottolomaketta tai soita suoraan numeroomme.
-                   Vastaamme 1–2 arkipäivässä.</p>
-              </div>
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Voinko tuoda omat varaosat huoltoon?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Pääsääntöisesti käytämme omia varaosiamme, jotta voimme taata työn laadun ja antaa huollolle takuun. Poikkeustapauksissa asiakkaan omia osia voidaan asentaa, mutta tällöin emme voi myöntää työlle tai osille takuuta.</p>
             </div>
+          </div>
 
-            <div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false">
-                <span>Voinko ehdottaa uutta opasta?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-a" hidden>
-                <p>Ehdottomasti! Lähetä idea yhteystietolomakkeella.
-                   Käymme kaikki ehdotukset läpi.</p>
-              </div>
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Mitä huollon hintaan sisältyy?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Huoltopaketin hintaan sisältyy työn osuus. Mahdolliset varaosat, kuten ketjut, jarrupalat tai renkaat, laskutetaan erikseen. Otamme aina yhteyttä, jos huollon yhteydessä ilmenee lisätarpeita.</p>
             </div>
+          </div>
 
-            <div class="faq-item" role="listitem">
-              <button class="faq-q" aria-expanded="false">
-                <span>Teettekö yhteistyötä yritysten kanssa?</span>
-                <span class="faq-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-a" hidden>
-                <p>Kyllä. Toimituksellinen riippumattomuus säilyy aina.
-                   Kaikki yhteistyöt merkitään avoimesti.</p>
-              </div>
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Mitä jos pyörästä löytyy lisävikoja huollon aikana?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Emme tee lisätöitä ilman asiakkaan hyväksyntää. Otamme aina yhteyttä ja kerromme selkeästi, mitä kannattaa tehdä ja mitä se maksaa.</p>
             </div>
+          </div>
 
-          </div><!-- /faq -->
-        </div><!-- /faq-box -->
+          <div class="community-faq-item" role="listitem">
+            <button class="community-faq-question" type="button" aria-expanded="false">
+              <span>Milloin pyörä kannattaa tuoda huoltoon?</span>
+              <span class="community-faq-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </button>
+            <div class="community-faq-answer" hidden>
+              <p>Pyörä kannattaa huoltaa vähintään kerran vuodessa, esimerkiksi keväällä ennen ajokauden alkua. Jos pyörä on kovassa käytössä, huoltotarve voi olla useammin.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      </div><!-- /boxes-grid -->
     </div>
-  </section><!-- /kolmen-kaatikot -->
+  </section>
 
 
   <!-- ======================================================
@@ -742,7 +1004,7 @@
         <a href="index.html" class="logo logo-footer" aria-label="BikeDoc etusivu">
           Bike<span>Doc</span>
         </a>
-        <p>Ammattitaitoinen pyörähuolto ja -kauppa Helsingissä.
+        <p>Ammattitaitoinen pyörähuolto ja -kauppa Joensuussa.
            Uudet ja käytetyt pyörät, huolto kaikille merkeille.</p>
         <div class="social-links" aria-label="Sosiaalinen media">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
@@ -877,28 +1139,40 @@
         }
       });
 
-      /* --- FAQ accordion --- */
-      document.querySelectorAll('.faq-q').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var item   = btn.parentElement;
-          var answer = btn.nextElementSibling;
-          var icon   = btn.querySelector('.faq-icon');
-          var isOpen = item.classList.contains('open');
+      /* --- FAQ accordion: vain yksi auki kerrallaan --- */
+      var faqItems = Array.prototype.slice.call(document.querySelectorAll('.community-faq-item'));
 
-          /* Sulje kaikki */
-          document.querySelectorAll('.faq-item').forEach(function (i) {
-            i.classList.remove('open');
-            i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-            i.querySelector('.faq-icon').textContent = '+';
-            i.querySelector('.faq-a').hidden = true;
+      function closeFaqItem(item) {
+        var button = item.querySelector('.community-faq-question');
+        var answer = item.querySelector('.community-faq-answer');
+        item.classList.remove('is-open');
+        button.setAttribute('aria-expanded', 'false');
+        answer.hidden = true;
+      }
+
+      function openFaqItem(item) {
+        var button = item.querySelector('.community-faq-question');
+        var answer = item.querySelector('.community-faq-answer');
+        item.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+        answer.hidden = false;
+      }
+
+      faqItems.forEach(function (item) {
+        var button = item.querySelector('.community-faq-question');
+        button.addEventListener('click', function () {
+          var isOpen = item.classList.contains('is-open');
+
+          faqItems.forEach(function (otherItem) {
+            if (otherItem !== item) {
+              closeFaqItem(otherItem);
+            }
           });
 
-          /* Avaa valittu (jos ei ollut jo auki) */
-          if (!isOpen) {
-            item.classList.add('open');
-            btn.setAttribute('aria-expanded', 'true');
-            icon.textContent = '−';
-            answer.hidden = false;
+          if (isOpen) {
+            closeFaqItem(item);
+          } else {
+            openFaqItem(item);
           }
         });
       });
