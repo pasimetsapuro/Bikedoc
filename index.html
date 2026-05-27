@@ -114,6 +114,74 @@
     @media (max-width: 580px) {
       .palvelut-grid { grid-template-columns: 1fr; }
     }
+
+    /* ---- Miksi valita -osio ----------------------------------- */
+    .miksi-osio {
+      background: #111827;
+      padding: 4.5rem 0;
+      width: 100%;
+    }
+    .miksi-otsikko {
+      text-align: center;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 3rem;
+    }
+    .miksi-grid {
+      display: flex;
+      align-items: stretch;
+    }
+    .miksi-kohta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.5rem 2.5rem;
+      gap: 0.8rem;
+    }
+    .miksi-kohta + .miksi-kohta {
+      border-left: 1px solid rgba(255,255,255,.14);
+    }
+    .miksi-ikoni {
+      width: 44px;
+      height: 44px;
+      color: #E85D04;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+    .miksi-kohta:hover .miksi-ikoni {
+      transform: scale(1.18);
+      color: #ff7e35;
+    }
+    .miksi-kohta h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .miksi-kohta p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,.62);
+      line-height: 1.7;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .miksi-grid {
+        flex-direction: column;
+      }
+      .miksi-kohta {
+        padding: 1.75rem 1.5rem;
+      }
+      .miksi-kohta + .miksi-kohta {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,.14);
+      }
+    }
   </style>
 </head>
 <body>
@@ -353,43 +421,61 @@
 
 
   <!-- ======================================================
-       4. MIKSI VALITA – tumma tausta + 4 saraketta
+       4. MIKSI VALITA – tumma palkki + 4 nostoa
        ====================================================== -->
-  <section class="why-section" aria-labelledby="why-heading">
+  <section class="miksi-osio" aria-labelledby="miksi-heading">
     <div class="container">
 
-      <div class="section-head center light">
-        <h2 id="why-heading">Miksi valita BikeDoc?</h2>
-        <p>Yli 1 500 tyytyväistä asiakasta – vuodesta 2020 lähtien</p>
-      </div>
+      <h2 class="miksi-otsikko" id="miksi-heading">MIKSI VALITA BIKEDOC?</h2>
 
-      <div class="why-grid">
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">🏆</div>
-          <h3>Sertifioidut mekaanikot</h3>
-          <p>Tiimimme on koulutettu kaikille suurimmille merkeille.
-             Luotettava työ ja rehellinen hinta-arvio ennen työn aloitusta.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">⚡</div>
-          <h3>Nopea toimitusaika</h3>
-          <p>Perushuolto usein valmiina jo seuraavana päivänä.
-             Kiirehuolto mahdollinen sopimuksen mukaan.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">💸</div>
-          <h3>Selkeä hinnasto</h3>
-          <p>Ei piilokuluja. Näet hinnan aina ennen kuin
-             työ aloitetaan – takuuvarmasti.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon" aria-hidden="true">✅</div>
-          <h3>Takuu työllemme</h3>
-          <p>Annamme 3 kuukauden takuun kaikille huoltotöille.
-             Varaosat alkuperäisiä tai laadukkaita vastaavia.</p>
-        </div>
-      </div>
+      <div class="miksi-grid">
 
+        <!-- 1. Ammattitaitoinen -->
+        <div class="miksi-kohta">
+          <svg class="miksi-ikoni" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77
+                     a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91
+                     a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+          <h3>Ammattitaitoinen ja kokenut</h3>
+          <p>Yli 10 vuoden kokemus erilaisten pyörien huolloista.</p>
+        </div>
+
+        <!-- 2. Nopea palvelu -->
+        <div class="miksi-kohta">
+          <svg class="miksi-ikoni" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <h3>Sujuva ja asiakaslähtöinen palvelu</h3>
+          <p>Useimmat huollot valmiina saman tai seuraavan päivän aikana.</p>
+        </div>
+
+        <!-- 3. Hinnoittelu -->
+        <div class="miksi-kohta">
+          <svg class="miksi-ikoni" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          <h3>Selkeä viestintä ja reilu hinnoittelu</h3>
+          <p>Kerromme etukäteen mitä tehdään ja mitä se maksaa.</p>
+        </div>
+
+        <!-- 4. Paikallinen -->
+        <div class="miksi-kohta">
+          <svg class="miksi-ikoni" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <h3>Paikallinen toimija Joensuussa</h3>
+          <p>Tervetuloa tutustumaan paikan päälle.</p>
+        </div>
+
+      </div>
     </div>
   </section><!-- /miksi valita -->
 
