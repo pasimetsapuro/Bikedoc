@@ -182,6 +182,74 @@
         border-top: 1px solid rgba(255,255,255,.14);
       }
     }
+
+    /* ---- Tietoa meistä -osio ---------------------------------- */
+    .tietoa-osio {
+      padding: 5.5rem 0;
+      background: #fff;
+    }
+    .tietoa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .tietoa-kuva img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 36px rgba(0,0,0,.10);
+      display: block;
+    }
+    .tietoa-eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #E85D04;
+      margin-bottom: 0.75rem;
+    }
+    .tietoa-otsikko {
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      font-weight: 800;
+      color: #1c2841;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .tietoa-teksti p {
+      font-size: 0.97rem;
+      color: #4a4a4a;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .tietoa-lista {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .tietoa-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+      color: #2d2d2d;
+      font-weight: 500;
+    }
+    .tietoa-lista li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #E85D04;
+    }
+    @media (max-width: 860px) {
+      .tietoa-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -481,33 +549,54 @@
 
 
   <!-- ======================================================
-       5. TIETOA MEISTÄ – vaalea tausta + 2 saraketta
+       5. TIETOA MEISTÄ – valkoinen + 2 saraketta
        ====================================================== -->
-  <section class="section about-section" aria-labelledby="about-heading">
+  <section class="tietoa-osio" aria-labelledby="tietoa-heading">
     <div class="container">
-      <div class="about-grid">
+      <div class="tietoa-grid">
 
-        <!-- Kuva vasemmalla -->
-        <div class="about-img">
-          <!-- Korvaa: <img src="images/about.jpg" alt="Tiimi huoltaa pyörää"> -->
-          <div class="img-placeholder"
-               style="background:linear-gradient(135deg,#e85d04,#c44b00)"
-               aria-hidden="true">🚲</div>
+        <!-- Vasen: kuva -->
+        <div class="tietoa-kuva">
+          <img src="images/intohimo.png" alt="BikeDoc – ammattitaitoinen pyörähuolto">
         </div>
 
-        <!-- Teksti oikealla -->
-        <div class="about-text">
-          <span class="eyebrow">Tietoa meistä</span>
-          <h2 id="about-heading">Intohimomme on<br>pitää sinun pyöräsi kunnossa</h2>
-          <p>BikeDoc avasi ovensa 2020 Helsingissä. Meillä on vuosien kokemus
-             kaiken tyyppisistä pyöristä – kaupunkipyöristä huipputason
-             maastopyöriin ja sähköpyöriin.</p>
-          <ul class="check-list">
-            <li>Sertifioidut pyörämekaanikot</li>
-            <li>Huolto kaikille merkeille ja tyypeille</li>
-            <li>Alkuperäiset varaosat ja laadukkaat vastineet</li>
-            <li>Selkeä hinnasto ilman piilokuluja</li>
+        <!-- Oikea: teksti -->
+        <div class="tietoa-teksti">
+          <span class="tietoa-eyebrow">TIETOA MEISTÄ</span>
+          <h2 class="tietoa-otsikko" id="tietoa-heading">Intohimoa, osaamista<br>ja tinkimätöntä laatua</h2>
+          <p>BikeDoc syntyi aidosta intohimosta pyöräilyyn ja halusta tarjota
+             Joensuussa laadukasta, rehellistä pyörähuoltoa. Huollamme kaiken
+             tyyppiset pyörät kaupunkiajajista vaativiin maasto- ja sähköpyöriin.</p>
+          <p>Jokainen pyörä käy läpi huolellisen tarkastuksen, ja kerromme aina
+             etukäteen mitä tehdään ja mitä se maksaa – ei yllätyksiä.</p>
+
+          <ul class="tietoa-lista">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Alan koulutusta ja jatkuvaa osaamisen kehittämistä
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Laadukkaat työkalut ja huoltomenetelmät
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Huollamme kaikenlaiset pyörät – myös sähköpyörät
+            </li>
           </ul>
+
           <a href="huoltovaraus.html" class="btn btn-primary">Varaa huoltoaika</a>
         </div>
 
