@@ -257,10 +257,16 @@
       color: #f4f4f4;
       padding: 5rem 0;
     }
-    .community-panel + .community-panel {
-      margin-top: 3.5rem;
-      padding-top: 3.5rem;
-      border-top: 1px solid rgba(255,255,255,.08);
+    .community-top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .community-top-grid .community-panel {
+      margin: 0;
+      padding: 0;
+      border: 0;
     }
     .community-eyebrow {
       display: block;
@@ -366,6 +372,15 @@
       flex-direction: column;
       gap: 0.9rem;
     }
+    .community-top-grid .review-stack,
+    .community-top-grid .community-faq {
+      max-width: none;
+    }
+    .community-booking-row {
+      margin-top: 3.5rem;
+      padding-top: 3.5rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
     .community-faq-item {
       background: #171717;
       border: 1px solid rgba(255,255,255,.08);
@@ -425,7 +440,11 @@
       .community-end {
         padding: 4rem 0;
       }
-      .community-panel + .community-panel {
+      .community-top-grid {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+      }
+      .community-booking-row {
         margin-top: 2.5rem;
         padding-top: 2.5rem;
       }
@@ -443,18 +462,6 @@
       }
     }
 
-    .hero-right {
-      align-self: end;
-      padding-bottom: 1.1rem;
-    }
-    .hero-badge-feat {
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-    }
-    .hero-badge-feat .hf-icon-wrap {
-      margin-bottom: 0.1rem;
-    }
   </style>
 </head>
 <body>
@@ -566,17 +573,6 @@
               </svg>
             </div>
             <strong>Kilpailukykyinen hinnoittelu</strong>
-          </div>
-          <div class="hero-feat hero-badge-feat">
-            <div class="hf-icon-wrap" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="7"/>
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-              </svg>
-            </div>
-            <strong>Yli 10 vuotta kokemusta</strong>
-            <span>kaiken tyyppisistä pyöristä</span>
           </div>
         </div>
       </div>
@@ -831,64 +827,57 @@
   <section class="community-end" aria-labelledby="community-reviews-title">
     <div class="container">
 
-      <!-- 1. Asiakasarviot -->
-      <div class="community-panel community-reviews-panel">
-        <span class="community-eyebrow">ASIAKASARVIOT</span>
-        <h2 id="community-reviews-title">Mitä asiakkaamme sanovat?</h2>
+      <div class="community-top-grid">
+        <!-- 1. Asiakasarviot -->
+        <div class="community-panel community-reviews-panel">
+          <span class="community-eyebrow">ASIAKASARVIOT</span>
+          <h2 id="community-reviews-title">Mitä asiakkaamme sanovat?</h2>
 
-        <div class="review-stack">
-          <article class="review-card">
-            <div class="review-mark" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
-              </svg>
-            </div>
-            <div class="review-content">
-              <p>“Ajanvaraus onnistui helposti suoraan nettisivuilta ja kaikki toimi juuri niin kuin pitikin. Pyörä otettiin heti työn alle ja palvelu oli alusta loppuun todella avuliasta ja asiantuntevaa. Tänne on helppo tulla uudelleen.”</p>
-              <cite>— Joona K., Joensuu</cite>
-            </div>
-          </article>
+          <div class="review-stack">
+            <article class="review-card">
+              <div class="review-mark" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+                </svg>
+              </div>
+              <div class="review-content">
+                <p>“Ajanvaraus onnistui helposti suoraan nettisivuilta ja kaikki toimi juuri niin kuin pitikin. Pyörä otettiin heti työn alle ja palvelu oli alusta loppuun todella avuliasta ja asiantuntevaa. Tänne on helppo tulla uudelleen.”</p>
+                <cite>— Joona K., Joensuu</cite>
+              </div>
+            </article>
 
-          <article class="review-card">
-            <div class="review-mark" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
-              </svg>
-            </div>
-            <div class="review-content">
-              <p>“Ostin BikeDocilta työsuhdepyörän ja koko prosessi sujui todella vaivattomasti. Autettiin sopivan mallin valinnassa ja pyörä oli juuri oikean kokoinen. Hinta-laatusuhde oli erinomainen ja kokonaisuus jäi todella positiiviseksi.”</p>
-              <cite>— Virpi L., Ylämylly</cite>
-            </div>
-          </article>
+            <article class="review-card">
+              <div class="review-mark" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+                </svg>
+              </div>
+              <div class="review-content">
+                <p>“Ostin BikeDocilta työsuhdepyörän ja koko prosessi sujui todella vaivattomasti. Autettiin sopivan mallin valinnassa ja pyörä oli juuri oikean kokoinen. Hinta-laatusuhde oli erinomainen ja kokonaisuus jäi todella positiiviseksi.”</p>
+                <cite>— Virpi L., Ylämylly</cite>
+              </div>
+            </article>
 
-          <article class="review-card">
-            <div class="review-mark" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
-              </svg>
-            </div>
-            <div class="review-content">
-              <p>“Tarvitsin nopean korjauksen ja pyörä saatiin kuntoon jo saman päivän aikana. Työ tehtiin huolellisesti ja samalla annettiin hyviä vinkkejä jatkoa varten. Asiantuntevaa ja sujuvaa palvelua.”</p>
-              <cite>— Juha S., Kontiolahti</cite>
-            </div>
-          </article>
+            <article class="review-card">
+              <div class="review-mark" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9.5 7.5c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1H9.5zm11 0c0-1.4-1-2.4-2.5-2.4-2.7 0-4.5 2.6-4.5 5.8 0 3.2 1.8 5.7 4.4 5.7 2.9 0 4.6-2.4 4.6-5.4 0-1.2-.1-2.2-.4-3.1h-1.6z"/>
+                </svg>
+              </div>
+              <div class="review-content">
+                <p>“Tarvitsin nopean korjauksen ja pyörä saatiin kuntoon jo saman päivän aikana. Työ tehtiin huolellisesti ja samalla annettiin hyviä vinkkejä jatkoa varten. Asiantuntevaa ja sujuvaa palvelua.”</p>
+                <cite>— Juha S., Kontiolahti</cite>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
 
-      <!-- 2. Huoltovaraus -->
-      <div class="community-panel booking-panel">
-        <span class="community-eyebrow">HUOLTOVARAUS</span>
-        <h2>Varaa huolto helposti</h2>
-        <p>Varaa aika muutamassa minuutissa ja anna pyöräsi meidän huoleksemme. Saat selkeän varauspolun ja voit siirtyä suoraan ajanvaraukseen silloin, kun se sinulle sopii.</p>
-        <a href="huoltovaraus.html" class="community-cta-btn">Siirry ajanvaraukseen</a>
-      </div>
+        <!-- 2. UKK -->
+        <div class="community-panel community-faq-panel">
+          <span class="community-eyebrow">UKK</span>
+          <h2>Usein kysytyt kysymykset</h2>
 
-      <!-- 3. UKK -->
-      <div class="community-panel community-faq-panel">
-        <span class="community-eyebrow">UKK</span>
-        <h2>Usein kysytyt kysymykset</h2>
-
-        <div class="community-faq" role="list">
+          <div class="community-faq" role="list">
           <div class="community-faq-item" role="listitem">
             <button class="community-faq-question" type="button" aria-expanded="false">
               <span>Kuinka kauan pyörän huolto kestää?</span>
@@ -986,6 +975,17 @@
               <p>Pyörä kannattaa huoltaa vähintään kerran vuodessa, esimerkiksi keväällä ennen ajokauden alkua. Jos pyörä on kovassa käytössä, huoltotarve voi olla useammin.</p>
             </div>
           </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Huoltovaraus -->
+      <div class="community-booking-row">
+        <div class="community-panel booking-panel">
+          <span class="community-eyebrow">HUOLTOVARAUS</span>
+          <h2>Varaa huolto helposti</h2>
+          <p>Varaa aika muutamassa minuutissa ja anna pyöräsi meidän huoleksemme. Saat selkeän varauspolun ja voit siirtyä suoraan ajanvaraukseen silloin, kun se sinulle sopii.</p>
+          <a href="huoltovaraus.html" class="community-cta-btn">Siirry ajanvaraukseen</a>
         </div>
       </div>
 
