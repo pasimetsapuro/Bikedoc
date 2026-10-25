@@ -6,8 +6,10 @@
   <title>Ota yhteyttä – BikeDoc</title>
   <meta name="description" content="Ota yhteyttä BikeDoc-tiimiin. Vastaamme palautteeseen, yhteistyöehdotuksiin ja kirjoittajahakemuksiin." />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/yhteystiedot.js" defer></script>
 </head>
 <body>
+  <noscript><p>Yhteystietojen näyttäminen edellyttää JavaScriptin käyttöönottoa selaimessa.</p></noscript>
 
   <!-- ============================================================
        NAVIGAATIO
@@ -74,15 +76,15 @@
 
             <div class="contact-detail">
               <span class="icon" aria-hidden="true">📧</span>
-              <span>info@bikedoc.fi</span>
+              <a data-contact-link="email" data-contact="email"></a>
             </div>
             <div class="contact-detail">
               <span class="icon" aria-hidden="true">📍</span>
-              <span>Helsinki, Suomi</span>
+              <span data-contact="postalCity"></span>
             </div>
             <div class="contact-detail">
               <span class="icon" aria-hidden="true">⏰</span>
-              <span>Ma–Pe, 9:00–17:00</span>
+              <span data-contact="hoursSummary"></span>
             </div>
 
             <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.5rem 0;" />

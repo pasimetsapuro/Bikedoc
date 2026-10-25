@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yhteystiedot – BikeDoc</title>
-  <meta name="description" content="Ota yhteyttä BikeDociin – pyörähuolto Helsingissä. Osoite: Pyöräkatu 12, puhelin: +358 40 123 4567, sähköposti: info@bikedoc.fi." />
+  <meta name="description" content="Ota yhteyttä BikeDociin. Katso liikkeen osoite, puhelinnumero, sähköposti ja aukioloajat." />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/yhteystiedot.js" defer></script>
 </head>
 <body>
+  <noscript><p>Yhteystietojen näyttäminen edellyttää JavaScriptin käyttöönottoa selaimessa.</p></noscript>
 
   <header class="site-header" id="site-header">
     <div class="container hdr-inner">
@@ -35,7 +37,7 @@
           <li><a href="yhteystiedot.html" class="active" aria-current="page">Yhteystiedot</a></li>
         </ul>
       </nav>
-      <a href="tel:+358401234567" class="hdr-phone" aria-label="Soita meille">
+      <a data-contact-link="phone" class="hdr-phone" aria-label="Soita meille">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
@@ -45,7 +47,7 @@
                    a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
                    c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        +358 40 123 4567
+        <span data-contact="phone"></span>
       </a>
     </div>
   </header>
@@ -58,7 +60,7 @@
       <div class="page-hero-text">
         <span class="page-eyebrow">Olemme täällä sinua varten</span>
         <h1>Yhteystiedot</h1>
-        <p>Löydät meidät Helsingistä – tai ota yhteyttä verkossa.</p>
+        <p>Löydät meidät <span data-contact="cityFrom"></span> – tai ota yhteyttä verkossa.</p>
       </div>
     </div>
   </section>
@@ -81,8 +83,8 @@
             </svg>
             <div>
               <strong>Osoite</strong><br>
-              Pyöräkatu 12<br>
-              00100 Helsinki
+              <span data-contact="street"></span><br>
+              <span data-contact="postalCity"></span>
             </div>
           </div>
 
@@ -93,8 +95,8 @@
             </svg>
             <div>
               <strong>Puhelin</strong><br>
-              <a href="tel:+358401234567" style="color:var(--clr-primary);font-weight:600;">+358 40 123 4567</a><br>
-              <span style="font-size:0.85rem;color:#888;">Arkisin 9–18, Lauantai 10–16</span>
+              <a data-contact-link="phone" style="color:var(--clr-primary);font-weight:600;"><span data-contact="phone"></span></a><br>
+              <span style="font-size:0.85rem;color:#888;"><span data-contact="hoursSummary"></span></span>
             </div>
           </div>
 
@@ -106,7 +108,7 @@
             </svg>
             <div>
               <strong>Sähköposti</strong><br>
-              <a href="mailto:info@bikedoc.fi" style="color:var(--clr-primary);font-weight:600;">info@bikedoc.fi</a><br>
+              <a data-contact-link="email" data-contact="email" style="color:var(--clr-primary);font-weight:600;"></a><br>
               <span style="font-size:0.85rem;color:#888;">Vastaamme 1–2 tunnissa arkisin</span>
             </div>
           </div>
@@ -114,15 +116,7 @@
           <div style="margin-top:2rem;">
             <h3 style="margin-bottom:1rem;">Aukioloajat</h3>
             <table class="hours-table">
-              <tbody>
-                <tr><td>Maanantai</td><td>9:00–18:00</td></tr>
-                <tr><td>Tiistai</td><td>9:00–18:00</td></tr>
-                <tr><td>Keskiviikko</td><td>9:00–18:00</td></tr>
-                <tr><td>Torstai</td><td>9:00–18:00</td></tr>
-                <tr><td>Perjantai</td><td>9:00–18:00</td></tr>
-                <tr><td>Lauantai</td><td>10:00–16:00</td></tr>
-                <tr><td>Sunnuntai</td><td>Suljettu</td></tr>
-              </tbody>
+              <tbody data-contact-hours="table"></tbody>
             </table>
           </div>
 
@@ -143,8 +137,8 @@
         <div>
 
           <!-- Karttapaikkamerkki -->
-          <div class="map-placeholder" role="img" aria-label="Kartta – Pyöräkatu 12, Helsinki">
-            📍 Kartta – Pyöräkatu 12, Helsinki<br>
+          <div class="map-placeholder" role="img" aria-label="Liikkeen sijainti">
+            📍 Kartta – <span data-contact="address"></span><br>
             <span style="font-size:0.8rem;color:#aaa;">(Lisää Google Maps -upotus tähän)</span>
           </div>
 
@@ -160,7 +154,7 @@
                 </div>
                 <div class="form-group">
                   <label for="c-phone">Puhelin</label>
-                  <input type="tel" id="c-phone" name="phone" autocomplete="tel" placeholder="+358 40 123 4567" />
+                  <input type="tel" id="c-phone" name="phone" autocomplete="tel" placeholder="Oma puhelinnumerosi" />
                 </div>
               </div>
 
@@ -229,7 +223,7 @@
           </svg>
           Bike<span>Doc</span>
         </a>
-        <p>Ammattitaitoinen pyörähuolto ja -kauppa Helsingissä.
+        <p>Ammattitaitoinen pyörähuolto ja -kauppa <span data-contact="cityIn"></span>.
            Uudet ja käytetyt pyörät, huolto kaikille merkeille.</p>
         <div class="footer-social">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -256,30 +250,26 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            Pyöräkatu 12, 00100 Helsinki
+            <span data-contact="address"></span>
           </li>
           <li>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-            <a href="tel:+358401234567">+358 40 123 4567</a>
+            <a data-contact-link="phone"><span data-contact="phone"></span></a>
           </li>
           <li>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <a href="mailto:info@bikedoc.fi">info@bikedoc.fi</a>
+            <a data-contact-link="email" data-contact="email"></a>
           </li>
         </ul>
       </div>
       <div class="fc">
         <h4>Aukioloajat</h4>
-        <ul class="fc-list hours-list">
-          <li><span>Maanantai–Perjantai</span><span>9:00–18:00</span></li>
-          <li><span>Lauantai</span><span>10:00–16:00</span></li>
-          <li><span>Sunnuntai</span><span>Suljettu</span></li>
-        </ul>
+        <ul class="fc-list hours-list" data-contact-hours="list"></ul>
         <p class="hours-note">Huoltovaraukset myös verkossa</p>
       </div>
       <div class="fc">
