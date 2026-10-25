@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BikeDoc – Pyörähuolto &amp; pyöräkauppa</title>
-  <meta name="description" content="BikeDoc tarjoaa ammattitaitoisen pyörähuollon, uusien ja käytettyjen pyörien myynnin sekä kaiken tarvittavan pyöräilyyn. Helsinki." />
+  <meta name="description" content="BikeDoc tarjoaa ammattitaitoisen pyörähuollon, uusien ja käytettyjen pyörien myynnin sekä kaiken tarvittavan pyöräilyyn." />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="js/yhteystiedot.js" defer></script>
   <style>
     /* ---- Moderni palvelukortit-osio ----------------------------- */
     .palvelut-osio {
@@ -465,6 +466,7 @@
   </style>
 </head>
 <body>
+  <noscript><p>Yhteystietojen näyttäminen edellyttää JavaScriptin käyttöönottoa selaimessa.</p></noscript>
 
   <!-- ======================================================
        1. HEADER – logo | nav (6 kpl) | puhelin | sticky
@@ -503,7 +505,7 @@
       </nav>
 
       <!-- Puhelinnumero oikealla -->
-      <a href="tel:+358447770024" class="hdr-phone" aria-label="Soita meille">
+      <a data-contact-link="phone" class="hdr-phone" aria-label="Soita meille">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
@@ -513,7 +515,7 @@
                    a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
                    c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        +358 447770024
+        <span data-contact="phone"></span>
       </a>
 
     </div>
@@ -732,7 +734,7 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
-          <h3>Paikallinen toimija Joensuussa</h3>
+          <h3>Paikallinen toimija <span data-contact="cityIn"></span></h3>
           <p>Tervetuloa tutustumaan paikan päälle.</p>
         </div>
 
@@ -1004,7 +1006,7 @@
         <a href="index.html" class="logo logo-footer" aria-label="BikeDoc etusivu">
           Bike<span>Doc</span>
         </a>
-        <p>Ammattitaitoinen pyörähuolto ja -kauppa Joensuussa.
+        <p>Ammattitaitoinen pyörähuolto ja -kauppa <span data-contact="cityIn"></span>.
            Uudet ja käytetyt pyörät, huolto kaikille merkeille.</p>
         <div class="social-links" aria-label="Sosiaalinen media">
           <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
@@ -1035,7 +1037,7 @@
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
             </svg>
-            BikeDoc Joensuu
+            <span data-contact="company"></span>
           </li>
           <li>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1043,7 +1045,7 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            Vilniuksenkatu 3, 80140 Joensuu
+            <span data-contact="address"></span>
           </li>
           <li>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1055,7 +1057,7 @@
                        a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45
                        c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-            <a href="tel:+358447770024">+358 44 777 0024</a>
+            <a data-contact-link="phone"><span data-contact="phone"></span></a>
           </li>
           <li>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1063,7 +1065,7 @@
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <a href="mailto:info@bikedoc.fi">info@bikedoc.fi</a>
+            <a data-contact-link="email" data-contact="email"></a>
           </li>
         </ul>
       </div>
@@ -1071,11 +1073,7 @@
       <!-- Sarake 3: Aukioloajat -->
       <div class="fc">
         <h4>Aukioloajat</h4>
-        <ul class="fc-list hours-list">
-          <li><span>Maanantai–Perjantai</span><span>12:00–17:00</span></li>
-          <li><span>Lauantai</span><span>Sopimuksen mukaan</span></li>
-          <li><span>Sunnuntai</span><span>Sopimuksen mukaan</span></li>
-        </ul>
+        <ul class="fc-list hours-list" data-contact-hours="list"></ul>
       </div>
 
       <!-- Sarake 4: Päävalikko -->
