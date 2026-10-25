@@ -6,10 +6,12 @@
   <title>Käytetyt pyörät – BikeDoc</title>
   <meta name="description" content="BikeDocin käytetyt pyörät – tarkastetut ja huolletut käytetyt maantie-, maasto-, gravel- ja sähköpyörät. Edulliset hinnat, 3 kk takuu." />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/kaytetyt.css" />
   <script src="js/yhteystiedot.js" defer></script>
+  <script type="module" src="js/kaytetyt.js"></script>
 </head>
-<body>
-  <noscript><p>Yhteystietojen näyttäminen edellyttää JavaScriptin käyttöönottoa selaimessa.</p></noscript>
+<body class="used-page">
+  <noscript><p>Pyörävalikoiman ja yhteystietojen näyttäminen edellyttää JavaScriptin käyttöönottoa selaimessa.</p></noscript>
 
   <header class="site-header" id="site-header">
     <div class="container hdr-inner">
@@ -75,102 +77,48 @@
     </div>
   </div>
 
-  <!-- Käytettyjen pyörien listaus -->
-  <section class="section" style="background: var(--clr-light);">
-    <div class="container">
+  <!-- Valikoima haetaan Sheetsistä jokaisella sivun latauksella. -->
+  <main>
+    <section class="section used-inventory" id="used-inventory" aria-labelledby="used-heading" aria-busy="true">
+      <div class="container used-container">
+        <div class="used-heading">
+          <div>
+            <span class="used-eyebrow">Hyvä pyörä, uusi alku</span>
+            <h2 id="used-heading">Löydä oma käytetty pyöräsi</h2>
+            <p>Arjen matkoille, metsäpoluille ja uusiin seikkailuihin. Tutustu tämänhetkiseen valikoimaan ja tule koeajolle.</p>
+          </div>
+          <p class="used-count" id="used-count" role="status" aria-live="polite">Haetaan pyöriä…</p>
+        </div>
 
-      <!-- Filtterit -->
-      <div class="filter-bar" role="group" aria-label="Suodata pyörätyypin mukaan">
-        <button class="filter-btn active" data-filter="all">Kaikki</button>
-        <button class="filter-btn" data-filter="maantie">Maantie</button>
-        <button class="filter-btn" data-filter="maasto">Maasto</button>
-        <button class="filter-btn" data-filter="gravel">Gravel</button>
-        <button class="filter-btn" data-filter="kaupunki">Kaupunki</button>
-        <button class="filter-btn" data-filter="sahko">Sähköpyörät</button>
+        <div class="used-toolbar" id="used-toolbar" hidden>
+          <div class="used-filters" id="used-filters" role="group" aria-label="Suodata pyörätyypin mukaan"></div>
+          <div class="used-sort">
+            <label for="used-sort">Järjestä</label>
+            <select id="used-sort">
+              <option value="default">Esittelyjärjestys</option>
+              <option value="price-asc">Hinta: edullisin ensin</option>
+              <option value="price-desc">Hinta: kallein ensin</option>
+              <option value="name">Nimi: A–Ö</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="used-message" id="used-message" role="status" aria-live="polite">
+          <span class="used-loading" aria-hidden="true"></span>
+          <p>Haetaan tämänhetkistä valikoimaa…</p>
+        </div>
+        <div class="used-grid" id="used-grid" hidden></div>
+
+        <aside class="used-sell" aria-labelledby="used-sell-heading">
+          <div>
+            <h2 id="used-sell-heading">Haluatko myydä pyöräsi?</h2>
+            <p>Ostamme pyöriä suoraan tai otamme ne myyntiin komissiolla. Ota yhteyttä, niin annamme ilmaisen arvion.</p>
+          </div>
+          <a href="yhteystiedot.html" class="btn btn-primary">Ota yhteyttä</a>
+        </aside>
       </div>
-
-      <div class="bike-grid">
-
-        <div class="bike-card" data-category="maantie">
-          <div class="bike-img" aria-hidden="true">🚴</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
-            <h3>Trek Domane AL 3 (2021)</h3>
-            <div class="bike-price">749 €</div>
-            <p>Pyörä on hyvässä kunnossa. Shimano Sora 9v, hydraulijarrut. Ajettu n. 2 000 km. Renkaiden kuluma normaali.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-        <div class="bike-card" data-category="maasto">
-          <div class="bike-img" aria-hidden="true">🏔️</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Erinomainen</span>
-            <h3>Specialized Stumpjumper Comp (2022)</h3>
-            <div class="bike-price">1 999 €</div>
-            <p>Kuten uusi, käytetty vain muutamilla ajoilla. Full-suspension, SRAM GX Eagle 12v, Fox-jousitus.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-        <div class="bike-card" data-category="gravel">
-          <div class="bike-img" aria-hidden="true">🛤️</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
-            <h3>Giant Revolt Advanced 2 (2020)</h3>
-            <div class="bike-price">1 299 €</div>
-            <p>Hiilikuituinen gravel-pyörä. Shimano GRX 11v, tubeless-renkaat. Pieniä pintanaarmuja, mekaanisesti moitteeton.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-        <div class="bike-card" data-category="sahko">
-          <div class="bike-img" aria-hidden="true">⚡</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Hyvä</span>
-            <h3>Bosch Active Line+ (2021)</h3>
-            <div class="bike-price">1 649 €</div>
-            <p>Kaupunkisähköpyörä, akku 80 % kapasiteetissa. Hydraulijarrut, integroidut valot, tavarateline.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-        <div class="bike-card" data-category="kaupunki">
-          <div class="bike-img" aria-hidden="true">🏙️</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Tyydyttävä</span>
-            <h3>Trek FX 2 Disc (2020)</h3>
-            <div class="bike-price">499 €</div>
-            <p>Kaupunki/fitness-pyörä levyjarruilla. Normaalia kulumaa, jarrut ja vaihteisto juuri huollettu. Toimii moitteetta.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-        <div class="bike-card" data-category="maantie">
-          <div class="bike-img" aria-hidden="true">🚴</div>
-          <div class="bike-body">
-            <span class="bike-badge badge-used">Käytetty · Kunto: Erinomainen</span>
-            <h3>Cannondale Synapse 105 (2023)</h3>
-            <div class="bike-price">1 499 €</div>
-            <p>Vain yksi kausi ajettu. Shimano 105 12v, endurence-geometria, uudet renkaat. Kuin uusi pyörä.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary" style="margin-top:0.75rem;font-size:0.88rem;padding:0.55rem 1rem;">Kysy lisää</a>
-          </div>
-        </div>
-
-      </div><!-- /bike-grid -->
-
-      <!-- Myy pyörä -->
-      <div style="margin-top:3rem;background:#fff;border-radius:12px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.07);text-align:center;">
-        <h2 style="margin-bottom:0.75rem;">Haluatko myydä pyöräsi?</h2>
-        <p style="color:#555;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;">
-          Ostamme pyöriä suoraan tai otamme ne myyntiin komissiolla.
-          Ota yhteyttä niin annamme ilmaisen arvion.
-        </p>
-        <a href="yhteystiedot.html" class="btn btn-primary">Ota yhteyttä</a>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -282,23 +230,6 @@
         }
       });
 
-      /* Filter-napit */
-      var filterBtns = document.querySelectorAll('.filter-btn');
-      var bikeCards  = document.querySelectorAll('.bike-card');
-      filterBtns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          filterBtns.forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          var filter = btn.getAttribute('data-filter');
-          bikeCards.forEach(function (card) {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
     })();
   </script>
 
